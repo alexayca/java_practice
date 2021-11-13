@@ -1,8 +1,7 @@
 /* * * * * * * 
- * Los Getters y Setters nos permiten leer y escribir (respectivamente) los valores de nuestras variables privadas desde fuera de la clase 
- * donde fueron creadas. 
- * Con los Getters obtenemos los datos de las variables.
- * Los Setters asignamos o cambiamos su valor.
+ * Las Variables son entidades elementales muy sencillas (datos primitivos).
+ * Los Objetos son entidades complejas que pueden estar formadas por la agrupación de diferentes variables y métodos.
+ * Los Objetos Primitivos o Clases Wrapper son variables primitivas que trabajan con algún tipo de dato y también tienen las características de los objetos.
  * * * * * * */
 
 public class Patient {
