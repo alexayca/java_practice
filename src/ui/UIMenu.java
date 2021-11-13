@@ -1,4 +1,5 @@
 package ui;
+import java.util.Iterator;
 import java.util.Scanner;
 
 // Al ser static permite ser conceptualizado sin crear instancias para un menu
@@ -6,7 +7,9 @@ import java.util.Scanner;
 // es poder llamarlos mas alla de la clase.
 public class UIMenu {
 	
-	static String msgError = "Please select a correct answer. You typed an incorrect option, please type the number according";
+	private static String msgError = "Please select a correct answer. You typed an incorrect option, please type the number according";
+	// modificador de acceso, static otorga un scope global, final hace a la variable "constante"
+	public static String[] MONTHS = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 	
     public static void showMenu() /* el metodo se hace publico para poder accesarlo desde otro package */
     {
@@ -67,13 +70,20 @@ public class UIMenu {
             switch (response){
                 case 1:
                     System.out.println("::Book an appointment");
+                    for (int i = 5; i<8; i++) {
+						System.out.println(i+1 + " " +MONTHS[i]); // No funciona correctamente i++
+						
+					}
                     break;
+                    
                 case 2:
                     System.out.println("::My appointments");
                     break;
+                    
                 case 0:
                     showMenu();
                     break;
+                    
                 default:
                 	System.out.println(msgError);
             }
