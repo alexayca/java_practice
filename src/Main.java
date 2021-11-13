@@ -1,6 +1,4 @@
 
-// Pueden importarse clases: import static nombre.de.la.clase.*
-import static java.lang.Math.*;
 
 import ui.UIMenu;
 

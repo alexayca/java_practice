@@ -6,8 +6,11 @@ import java.util.Scanner;
 // es poder llamarlos mas alla de la clase.
 public class UIMenu {
 	
+	static String msgError = "Please select a correct answer. You typed an incorrect option, please type the number according";
+	
     public static void showMenu() /* el metodo se hace publico para poder accesarlo desde otro package */
     {
+    	Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to My Appointments");
         System.out.println("Selecciona la opción deseada");
 
@@ -17,8 +20,12 @@ public class UIMenu {
             System.out.println("2. Patient");
             System.out.println("0. Salir");
 
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            try {
+            	response = Integer.valueOf(sc.nextLine());
+			} catch (NumberFormatException e) {
+				// handle exception
+				response = 9;
+			}
 
             switch (response){
                 case 1:
@@ -33,13 +40,15 @@ public class UIMenu {
                     System.out.println("Thank you for you visit");
                     break;
                 default:
-                    System.out.println("Please select a correct answer");
+                    System.out.println(msgError);
             }
         }while (response != 0);
+        sc.close();
     }
 
     /*public*/ static void showPatientMenu()
     {
+    	Scanner sc = new Scanner(System.in);
         int response = 0;
         do {
             System.out.println("\n\n");
@@ -48,8 +57,12 @@ public class UIMenu {
             System.out.println("2. My appointments");
             System.out.println("0. Return");
 
-            Scanner sc = new Scanner(System.in);
-            response = Integer.valueOf(sc.nextLine());
+            try {
+            	response = Integer.valueOf(sc.nextLine());
+			} catch (NumberFormatException e) {
+				// handle exception
+				response = 9;
+			}
 
             switch (response){
                 case 1:
@@ -61,8 +74,11 @@ public class UIMenu {
                 case 0:
                     showMenu();
                     break;
+                default:
+                	System.out.println(msgError);
             }
         }while (response != 0);
+        sc.close();
     }
 
 }
