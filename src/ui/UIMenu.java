@@ -1,0 +1,68 @@
+package ui;
+import java.util.Scanner;
+
+// Al ser static permite ser conceptualizado sin crear instancias para un menu
+// Porque no tiene propiedades. La idea de crear clases y atributos estaticos 
+// es poder llamarlos mas alla de la clase.
+public class UIMenu {
+	
+    public static void showMenu() /* el metodo se hace publico para poder accesarlo desde otro package */
+    {
+        System.out.println("Welcome to My Appointments");
+        System.out.println("Selecciona la opción deseada");
+
+        int response = 0;
+        do {
+            System.out.println("1. Doctor");
+            System.out.println("2. Patient");
+            System.out.println("0. Salir");
+
+            Scanner sc = new Scanner(System.in);
+            response = Integer.valueOf(sc.nextLine());
+
+            switch (response){
+                case 1:
+                    System.out.println("Doctor");
+                    break;
+                case 2:
+                    response = 0;
+                    showPatientMenu();
+
+                    break;
+                case 0:
+                    System.out.println("Thank you for you visit");
+                    break;
+                default:
+                    System.out.println("Please select a correct answer");
+            }
+        }while (response != 0);
+    }
+
+    /*public*/ static void showPatientMenu()
+    {
+        int response = 0;
+        do {
+            System.out.println("\n\n");
+            System.out.println("Patient");
+            System.out.println("1. Book an appointment");
+            System.out.println("2. My appointments");
+            System.out.println("0. Return");
+
+            Scanner sc = new Scanner(System.in);
+            response = Integer.valueOf(sc.nextLine());
+
+            switch (response){
+                case 1:
+                    System.out.println("::Book an appointment");
+                    break;
+                case 2:
+                    System.out.println("::My appointments");
+                    break;
+                case 0:
+                    showMenu();
+                    break;
+            }
+        }while (response != 0);
+    }
+
+}

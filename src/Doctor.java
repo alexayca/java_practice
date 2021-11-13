@@ -35,5 +35,10 @@ public class Doctor
     	// por la variable static cada que se cree un nuevo objeto incrementara el ID
     	return id;    	
     }
+    
+    public void showId() 
+    {
+    	System.out.println("ID Medical: " + ID); // hacemos referencia a la variable estatica Doctor.ID
+    }
 
 }
