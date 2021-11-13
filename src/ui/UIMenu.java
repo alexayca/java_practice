@@ -1,5 +1,4 @@
 package ui;
-import java.util.Iterator;
 import java.util.Scanner;
 
 // Al ser static permite ser conceptualizado sin crear instancias para un menu

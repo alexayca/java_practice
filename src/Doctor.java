@@ -2,43 +2,27 @@
 public class Doctor 
 {
     //Atributos
-	static int ID = 0;	// las variables static pertenecen a la clase, siempre tendra el mismo valor para todos los objetos
-    int id;
+	static int id = 0;	// Autoincrement
     String name;
     String speciality;
     
     // Metodo constructor
-    Doctor(/*parametros*/)
+    Doctor()
     {
-    	id = ID;
-    	ID++;
-    	// Instrucciones que se ejecutan al instanciar 
-    	// un nuevo objeto con la clase Doctor
-    	System.out.println("Construyendo el objeto Doctor sin parametros");
+    	id++;
+    	this.name = "Nombre por defecto";
+        this.speciality = "Especialidad por defecto: General";    	
     }
     
     // Metodo constructor sobrecargado
-    Doctor(String name)
+    Doctor(String name, String speciality)
     {
-    	System.out.println("El nombre del Doctor asignado es: " + name + " (con parametros) ");
-    	// Para modificar la variable 'name' deberia asignarse con this. Pass by value
+    	id++;
+        this.name = name;	// Hace referencia a los elementos de la instancia de clase
+        this.speciality = speciality;
     }
     
     // Metodos
-    public void showName()
-    {
-        System.out.println(name);
-    }
-    
-    public int getId() 
-    {
-    	// por la variable static cada que se cree un nuevo objeto incrementara el ID
-    	return id;    	
-    }
-    
-    public void showId() 
-    {
-    	System.out.println("ID Medical: " + ID); // hacemos referencia a la variable estatica Doctor.ID
-    }
+
 
 }
