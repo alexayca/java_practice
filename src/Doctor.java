@@ -18,8 +18,8 @@ public class Doctor
     Doctor(String name, String speciality)
     {
     	id++;
-        this.name = name;	// Hace referencia a los elementos de la instancia de clase
-        this.speciality = speciality;
+        this.name = name;	// this Hace referencia a los elementos de la instancia de clase
+        this.speciality = speciality; // el parametro pasado se asigna a la instancia
     }
     
     // Metodos
