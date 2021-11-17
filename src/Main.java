@@ -10,6 +10,8 @@
  * una memoria que nos permite guardar grandes cantidades de información, pero con un poco menos de velocidad.
  * ******* */
 
+import java.util.Date;
+
 import ui.UIMenu;
 
 public class Main 
@@ -20,19 +22,20 @@ public class Main
 		
         //UIMenu.showMenu();
 		
-		/*Doctor miGinecolaga = new Doctor("Dayana", "Ginecologia");
-		System.out.println(Doctor.id +" . " +miGinecolaga.name +" - " +miGinecolaga.speciality);
-		
-		Patient paciente = new Patient("Mila", "mila@mail.com");
-		System.out.println(paciente.getName() +" - " +paciente.getEmail());
-		paciente.setWeight(54.6);
-		System.out.println(paciente.getWeight());
-		paciente.setPhoneNumber("12345678");
-		System.out.println(paciente.getPhoneNumber());
-		*/
-		/* Variable vs. Objeto: Un vistazo a la memoria */
-	        String name = "Ann";
+		Doctor miGinecolaga = new Doctor("Dayana", "Ginecologia");
 
+		// Agregamos una nueva cita al doctor
+		miGinecolaga.addAvailableAppointment(new Date(), "4pm");
+		miGinecolaga.addAvailableAppointment(new Date(), "10am");
+		miGinecolaga.addAvailableAppointment(new Date(), "1pm");
+		// Muestra la lista de objetos (al parecer direcciones de memoria)
+		System.out.println(miGinecolaga.getAvailableAppointments());
+		// ciclo foreach para mostrar la lista
+		for (Doctor.AvailableAppointment availableAppointment : miGinecolaga.getAvailableAppointments()) {
+			System.out.println(availableAppointment.getDate() + " " + availableAppointment.getTime());
+		}
+		
+/*
 	        System.out.println("\n\n\n");
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
 	        Patient patient2 = new Patient("Anahi", "anahi@mail.com");
@@ -49,7 +52,7 @@ public class Main
 	        patient2.setName("Manuel");
 	        System.out.println(patient1 +" Paciente1: " +patient1.getName());
 	        System.out.println(patient2 +" Paciente2: " +patient2.getName());
-
+*/
 	}
 
 }
