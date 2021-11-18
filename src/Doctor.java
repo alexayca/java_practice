@@ -1,31 +1,29 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Doctor 
+public class Doctor extends User
 {
     //Atributos
-	static int id = 0;	// Autoincrement
-    private String name;
-    private String email;
     private String speciality;
-   
-    // Metodo constructor
-    Doctor()
-    {
-    	id++;
-    	this.name = "Nombre por defecto";
-        this.speciality = "Especialidad por defecto: General";    	
-    }
     
     // Metodo constructor sobrecargado
-    Doctor(String name, String speciality)
+    Doctor(String name, String email)
     {
-    	id++;
-        this.name = name;	// this Hace referencia a los elementos de la instancia de clase
-        this.speciality = speciality; // el parametro pasado se asigna a la instancia
+    	super(name,email);
+    	// Observe que para modificar speciality se usa el metodo SET
+        this.setSpeciality(speciality); // el parametro pasado se asigna a la instancia
+        System.out.println("El nombre del medico asignado es: " + name);
     }
     
-    // Colecciones (coleccion de objetos)
+    public String getSpeciality() {
+		return speciality;
+	}
+
+	public void setSpeciality(String speciality) {
+		this.speciality = speciality;
+	}
+
+	// Colecciones (coleccion de objetos)
     // La clase ArrayList almacena datos en memoria de forma similar a los Arrays 
     // con la ventaja de que el numero de elementos que almacena, es dinámico; No es necesario declarar su tamaño.
     // Declaración de un ArrayList de "String". Puede ser de cualquier otro Elemento u Objeto
@@ -44,6 +42,9 @@ public class Doctor
     }
     
     // Devolver la lista completa de citas disponibles del array
+    // aunque al parecer en la videoclase no.16 no fue realmente util
+    // Tambien hay clases internas y locales a un metodo
+    // aunque normalmente no se usan, pueden representar un desperdicio de memoria
     public ArrayList<AvailableAppointment> getAvailableAppointments()
     {
     	return availableAppointments;

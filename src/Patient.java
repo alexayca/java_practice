@@ -4,22 +4,21 @@
  * Los Objetos Primitivos o Clases Wrapper son variables primitivas que trabajan con algún tipo de dato y también tienen las características de los objetos.
  * * * * * * */
 
-public class Patient {
+public class Patient extends User {
 	
-	int id;
-	private String name;
-	private String email;
-	private String address;
-	private String phoneNumber;
 	private String birthday;
 	private double weight;
 	private double height;
 	private String blood;
 	
+	// La razón por la cual salió el error en el super, 
+	// es porque al mandar llamar al constructor de la clase padre 
+	// este debe de ir siempre al inicio del constructor de la clase hijo
 	Patient(String name, String email)
 	{
-		this.name = name;
-		this.email = email;
+		super(name, email);	// hace referencia al metodo constructor de la clase padre
+		// quitando los atributos que pertenecian a la misma clase
+		// indicados por this.
 	}
 
 	public String getWeight() {
@@ -36,49 +35,6 @@ public class Patient {
 
 	public void setHeight(double height) {
 		this.height = height;
-	}
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		if (phoneNumber.length() != 8) {
-			System.out.println("El telefono debe tener 8 digitos");
-		}else if(phoneNumber.length() == 8)
-			this.phoneNumber = phoneNumber;
 	}
 
 	public String getBirthday() {
