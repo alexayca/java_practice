@@ -2,6 +2,9 @@
  * En java se aplica la herencia usando la palabra clave 'extends'
  * despues del nombre de la clase hija y seguido de la clase padre
  * La clase user es la clase padre que hereda a Doctor y Patient
+ * Se puede hacer la clase User de tipo:
+ * public abstract class User {}
+ * para que no puedan ser instanciada por si sola.
  * */
 public class User {
 	
@@ -59,6 +62,15 @@ public class User {
 			this.phoneNumber = phoneNumber;
 	}
 	
-	
+	/*
+	 * Al imprimir cualquier objeto en la consola con System.out.println(object), en realidad, 
+	 * estamos ejecutando el método .toString() de dicho objeto, por lo que si sobreescribimos 
+	 * este método en nuestras clases, el resultado en la consola también cambiará automáticamente.
+	 */
+	@Override
+	public String toString() {
+		return "User: " +name +", email: " +email
+				+"\nAddress: " +address + " Phone: " +phoneNumber;
+	}
 
 }
