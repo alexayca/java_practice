@@ -29,6 +29,8 @@
 
 import java.util.Date;
 
+import model.Doctor;
+import model.Patient;
 import ui.UIMenu;
 
 public class Main 

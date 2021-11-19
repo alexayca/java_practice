@@ -1,3 +1,4 @@
+package model;
 /* * * * * * 
  * En java se aplica la herencia usando la palabra clave 'extends'
  * despues del nombre de la clase hija y seguido de la clase padre

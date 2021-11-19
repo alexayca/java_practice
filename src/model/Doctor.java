@@ -1,3 +1,4 @@
+package model;
 /*El polimorfismo es la posibilidad de sobreescribir un 
  * metodo con comportamientos diferentes.
  * */
@@ -10,7 +11,7 @@ public class Doctor extends User
     private String speciality;
     
     // Metodo constructor sobrecargado
-    Doctor(String name, String email)
+    public Doctor(String name, String email)
     {
     	super(name,email);
     	// Observe que para modificar speciality se usa el metodo SET

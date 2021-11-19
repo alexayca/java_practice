@@ -1,3 +1,4 @@
+package model;
 /* * * * * * * 
  * Las Variables son entidades elementales muy sencillas (datos primitivos).
  * Los Objetos son entidades complejas que pueden estar formadas por la agrupación de diferentes variables y métodos.
@@ -14,7 +15,7 @@ public class Patient extends User {
 	// La razón por la cual salió el error en el super, 
 	// es porque al mandar llamar al constructor de la clase padre 
 	// este debe de ir siempre al inicio del constructor de la clase hijo
-	Patient(String name, String email)
+	public Patient(String name, String email)
 	{
 		super(name, email);	// hace referencia al metodo constructor de la clase padre
 		// quitando los atributos que pertenecian a la misma clase
