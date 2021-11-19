@@ -57,7 +57,7 @@ public class Patient extends User {
 	public String toString() {
 		return super.toString() + "\nAge: " +birthday 
 				+"\nWeight: " +getWeight() +"\nHeight: " + getHeight()
-				+"\nBloofd: " +getBlood();
+				+"\nBlood: " +getBlood();
 	}
 
 }

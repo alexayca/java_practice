@@ -39,7 +39,7 @@ public class Main
 		
         //UIMenu.showMenu();
 		
-		Doctor miGinecolaga = new Doctor("Dayana", "Ginecologia");
+		Doctor miGinecolaga = new Doctor("Dayana", "Ginecologia@correo.com");
 
 		// Agregamos una nueva cita al doctor
 		miGinecolaga.addAvailableAppointment(new Date(), "4pm");
@@ -57,7 +57,12 @@ public class Main
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
 	        Patient patient2 = new Patient("Anahi", "anahi@mail.com");
 
+	        /* Cuando se imprime un objeto el metodo toString se llama implicitamente
+	         * para llamarlo explicitamente: System.out.println(patient.toString());
+	         * Vease como se muestra la informacion completa decada usuario en particular
+	         * */
 	        System.out.println(patient1);
+	        System.out.println(miGinecolaga);
 	        
 
 	}

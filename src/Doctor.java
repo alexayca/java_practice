@@ -1,3 +1,6 @@
+/*El polimorfismo es la posibilidad de sobreescribir un 
+ * metodo con comportamientos diferentes.
+ * */
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -50,7 +53,16 @@ public class Doctor extends User
     	return availableAppointments;
     }
 
-    // Clase anidada estatica
+    @Override
+	public String toString() {
+		// Se reutiliza todo el comportamiento definido en la clase User
+    	// y se agregan mas comportamientos de la clase Doctor y su clase inner
+		return super.toString() + "\nSpecialityt: " +speciality +"\nAvailable" +availableAppointments.toString();
+	}
+
+
+
+	// Clase anidada estatica (inner class)
     // Siguiendo la logica del negocio, el doctor es el unico que puede agendar citas
     // al detectar un atributo que su estructura de datos tiene muchos datos puede considerarse 
     // si requiere una clase anidada o puede ser independiente (Anahi)
@@ -74,7 +86,14 @@ public class Doctor extends User
         public void setDate(Date date) {this.date = date;}        
 
         public String getTime() {return time;}
-        public void setTime(String time) {this.time = time;}        
+        public void setTime(String time) {this.time = time;}
+
+		@Override
+		public String toString() {
+			return "Available Appointments \nDate: " +date +"\nTime: " +time;
+		}
+        
+        
         
     }
 
