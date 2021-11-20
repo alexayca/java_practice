@@ -7,7 +7,7 @@ package model;
  * public abstract class User {}
  * para que no puedan ser instanciada por si sola.
  * */
-public class User {
+public abstract class User {
 	
 	int id;
 	private String name;
@@ -15,6 +15,8 @@ public class User {
 	private String address;
 	private String phoneNumber;
 
+	// Al ser la clase abstract no podra ser instanciada directamente
+	// Se puede instanciar si se aplica un modelo de polimorfismo
 	public User(String name, String email) {
 		this.name = name;
 		this.email = email;

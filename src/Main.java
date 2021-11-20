@@ -31,6 +31,7 @@ import java.util.Date;
 
 import model.Doctor;
 import model.Patient;
+import model.User;
 import ui.UIMenu;
 
 public class Main 
@@ -54,6 +55,9 @@ public class Main
 			System.out.println(availableAppointment.getDate() + " " + availableAppointment.getTime());
 		}
 		
+		// Observe como aplica el polimorfisco 
+		// Se instancia la clase User como Doctor
+		User user = new Doctor("Anahi", "ana@ana.com");
 
 	        System.out.println("\n\n\n");
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
