@@ -29,7 +29,9 @@
 
 import java.util.Date;
 
+import model.AppointmentDoctor;
 import model.Doctor;
+import model.ISchedulable;
 import model.Patient;
 import model.User;
 import ui.UIMenu;
@@ -65,6 +67,44 @@ public class Main
 		// el objeto esta tomando diferentes formas
 		User userPa = new Patient("Alex", "alex@ana.com");
 		userPa.showDataUser();
+		
+		
+		/* * 
+		 * https://riptutorial.com/java/example/18796/anonymous-inner-classes
+		 * Las Clases Anónimas son una forma de instanciar clases abstractas sin necesidad de usar sus clases hijas. 
+		 * Pero este tipo de instanciación tiene algunas restricciones: 
+		 * 		el ciclo de vida de estas instancias NO es duradero, 
+		 * 		no las tendremos disponibles durante toda la ejecución del programa.
+		 * */
+		User user1 = new User("UsuarioAnonimo", "anonimo@ana.com") {
+			// Se toman los metodos abstractos para establecer su comportamiento en este momento, es decir temporal
+			@Override
+			public void showDataUser() {
+				System.out.println("Investigador");
+				System.out.println("Development and Research");
+			}
+		};		// Cuando termina la clase anonima, el lenguaje lo toma como una sentencia de codigo. Observe que se esta creando un objeto
+				// 	Clase		 objeto  = new Clase();
+				// ClaseAbstracta objeto = new ClaseAbstracta(){@Override invocarMetodosAbstractos(){ . . . }};
+		user1.showDataUser();	// Se llama al metodo que estara vigente en ese instante
+		
+		// Tambien se puede "instanciar una interfaz"
+		ISchedulable iSchedulable = new ISchedulable() {
+			@Override
+			public void schedule(Date date, String time) {
+				// TODO
+			}
+		};
+		
+		//	ISchedulable iSchedulable1 = new AppointmentDoctor();
+		//	iSchedulable1.schedule(null, null);
+		/* ** **
+		 * - Las clases son como moldes para crear objetos, solo debemos instanciarlas…
+		 * - En las clases con métodos estáticos, estas funciones se pueden llamar/ejecutar sin necesidad de instanciar las clases…
+		 * - Las clases abstractas, son clases que nunca instanciamos pero que nos permiten definir métodos opcionales u obligatorios de implementar en las clases que hereden de ellas…
+		 * - Las clases anónimas, permiten instanciar clases abstractas…
+		 * ** ** */
+		
 
 	        System.out.println("\n\n\n");
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
