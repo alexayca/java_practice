@@ -61,4 +61,10 @@ public class Patient extends User {
 				+"\nBlood: " +getBlood();
 	}
 
+	@Override
+	public void showDataUser() {
+		System.out.println("Paciente");
+		System.out.println("Historial completo");		
+	}
+
 }

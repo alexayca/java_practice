@@ -55,9 +55,16 @@ public class Main
 			System.out.println(availableAppointment.getDate() + " " + availableAppointment.getTime());
 		}
 		
-		// Observe como aplica el polimorfisco 
+		// Observe como aplica el polimorfismo 
 		// Se instancia la clase User como Doctor
-		User user = new Doctor("Anahi", "ana@ana.com");
+		// Recordemos que no se pueden crear objetos de clases abstractas, el objeto de tipo user
+		// adquiere la forma de las clases Doctor y Patient
+		User userDo = new Doctor("Anahi", "ana@ana.com");
+		// El objeto user adquiere la forma que el objeto doctor le esta dando
+		userDo.showDataUser();
+		// el objeto esta tomando diferentes formas
+		User userPa = new Patient("Alex", "alex@ana.com");
+		userPa.showDataUser();
 
 	        System.out.println("\n\n\n");
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
@@ -67,8 +74,8 @@ public class Main
 	         * para llamarlo explicitamente: System.out.println(patient.toString());
 	         * Vease como se muestra la informacion completa decada usuario en particular
 	         * */
-	        System.out.println(patient1);
-	        System.out.println(miGinecolaga);
+//	        System.out.println(patient1);
+//	        System.out.println(miGinecolaga);
 	        
 
 	}

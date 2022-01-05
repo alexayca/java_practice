@@ -61,7 +61,11 @@ public class Doctor extends User
 		return super.toString() + "\nSpecialityt: " +speciality +"\nAvailable" +availableAppointments.toString();
 	}
 
-
+	@Override
+	public void showDataUser() {
+		System.out.println("Hospital: Cruz Roja");
+		System.out.println("Departamento: Oncologia");
+	}
 
 	// Clase anidada estatica (inner class)
     // Siguiendo la logica del negocio, el doctor es el unico que puede agendar citas

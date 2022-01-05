@@ -75,5 +75,9 @@ public abstract class User {
 		return "User: " +name +", email: " +email
 				+"\nAddress: " +address + " Phone: " +phoneNumber;
 	}
+	
+	// Metodo abstracto para que la clase se considere abstracta
+	// Solo se declara el metodo
+	public abstract void showDataUser();
 
 }
