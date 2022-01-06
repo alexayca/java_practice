@@ -12,7 +12,7 @@ public class UIMenu {
 	
 	private static String msgError = "Please select a correct answer. You typed an incorrect option, please type the number according";
 	// modificador de acceso, static otorga un scope global, final hace a la variable "constante"
-	public static String[] MONTHS = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+	public static final String[] MONTHS = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
 	public static Doctor doctorLogged;
 	public static Patient patientLogged;
 	
@@ -88,6 +88,7 @@ public class UIMenu {
 						// Obtener los datos del usuario logeado
 						doctorLogged = d;	// Se asignan los datos del doctor logueado
 						// TODO showDoctorMenu
+						UIDoctorMenu.showDoctorMenu();
 					}
 				}
 			}
@@ -111,10 +112,10 @@ public class UIMenu {
         int response = 0;
         do {
             System.out.println("\n\n");
-            System.out.println("Patient");
-            System.out.println("1. Book an appointment");
-            System.out.println("2. My appointments");
-            System.out.println("0. Return");
+            System.out.println(":: Menu Patient");
+            System.out.println("\t1. Book an appointment");
+            System.out.println("\t2. My appointments");
+            System.out.println("\t0. Return");
 
             try {
             	response = Integer.valueOf(sc.nextLine());

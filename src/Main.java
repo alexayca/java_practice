@@ -42,8 +42,9 @@ public class Main
 	public static void main(String[] args) 
 	{
 		
-        //UIMenu.showMenu();
-		
+        UIMenu.showMenu();
+
+/*        
 		Doctor miGinecolaga = new Doctor("Dayana", "Ginecologia@correo.com");
 
 		// Agregamos una nueva cita al doctor
@@ -76,7 +77,7 @@ public class Main
 		 * 		el ciclo de vida de estas instancias NO es duradero, 
 		 * 		no las tendremos disponibles durante toda la ejecución del programa.
 		 * */
-		User user1 = new User("UsuarioAnonimo", "anonimo@ana.com") {
+/*		User user1 = new User("UsuarioAnonimo", "anonimo@ana.com") {
 			// Se toman los metodos abstractos para establecer su comportamiento en este momento, es decir temporal
 			@Override
 			public void showDataUser() {
@@ -105,7 +106,7 @@ public class Main
 		 * - Las clases anónimas, permiten instanciar clases abstractas…
 		 * ** ** */
 		
-
+/*
 	        System.out.println("\n\n\n");
 	        Patient patient1 = new Patient("Alejandra", "alejandra@mail.com");
 	        Patient patient2 = new Patient("Anahi", "anahi@mail.com");
