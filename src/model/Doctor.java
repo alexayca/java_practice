@@ -37,7 +37,7 @@ public class Doctor extends User
     // ArrayList<String> nombreArrayList = new ArrayList<String>();
     // algunos de sus metodos mas importantes:
     // nombreArrayList.add(element); 	nombreArrayList.size(); 	.get(index); .set(index, element); .remove(index);	
-    ArrayList<AvailableAppointment> availableAppointments = new ArrayList();
+    private ArrayList<AvailableAppointment> availableAppointments = new ArrayList<>();
     
     // Metodo a nivel de la clase exterior para llamar a la clase estatica anidada
     // para añadir citas al doctor que se añadiran al array
@@ -97,8 +97,8 @@ public class Doctor extends User
         public void setId(int id) {this.id = id;}
         
         // Sobrecarga de metodos
-        public Date getDate() {return date;}								
-        public String getDate(String date) {return format.format(date);}
+        public Date getDate(String DATE) {return date;}								
+        public String getDate() {return format.format(date);}
         public void setDate(Date date) {this.date = date;}        
 
         public String getTime() {return time;}
