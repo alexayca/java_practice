@@ -17,7 +17,7 @@ public class Doctor extends User
     {
     	super(name,email);
     	// Observe que para modificar speciality se usa el metodo SET
-        this.setSpeciality(speciality); // el parametro pasado se asigna a la instancia
+        //this.setSpeciality(speciality); // el parametro pasado se asigna a la instancia
         // Comento la siguiente linea para que no aparezcan los nombres en el menu, al instanciar la clase
         //System.out.println("El nombre del medico asignado es: " + name);
     }

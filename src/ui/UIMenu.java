@@ -24,9 +24,9 @@ public class UIMenu {
 
         int response = 0;
         do {
-            System.out.println("1. Doctor");
-            System.out.println("2. Patient");
-            System.out.println("0. Salir");
+            System.out.println("\t1. Doctor");
+            System.out.println("\t2. Patient");
+            System.out.println("\t0. Salir");
 
             try {
             	response = Integer.valueOf(sc.nextLine());
@@ -52,7 +52,7 @@ public class UIMenu {
                     System.out.println(msgError);
             }
         }while (response != 0);
-        sc.close();
+        //sc.close();
     }
     
     
