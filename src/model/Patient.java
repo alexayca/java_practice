@@ -5,12 +5,38 @@ package model;
  * Los Objetos Primitivos o Clases Wrapper son variables primitivas que trabajan con algún tipo de dato y también tienen las características de los objetos.
  * * * * * * */
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Patient extends User {
 	
 	private String birthday;
 	private double weight;
 	private double height;
 	private String blood;
+	
+	private ArrayList<AppointmentDoctor> appointmentDoctors = new ArrayList<>();
+	private ArrayList<AppointmentNurse> appointmentNurses = new ArrayList<>();
+	
+	
+	public ArrayList<AppointmentDoctor> getAppointmentDoctors() {
+		return appointmentDoctors;
+	}
+
+	public void addAppointmentDoctors(Doctor doctor, Date date, String time) {
+		AppointmentDoctor appointmentDoctor = new AppointmentDoctor(this, doctor );
+		appointmentDoctor.schedule(date, time);
+		appointmentDoctors.add(appointmentDoctor);
+	}
+
+	public ArrayList<AppointmentNurse> getAppointmentNurses() {
+		return appointmentNurses;
+	}
+
+	public void setAppointmentNurses(ArrayList<AppointmentNurse> appointmentNurses) {
+		this.appointmentNurses = appointmentNurses;
+	}
+
 	
 	// La razón por la cual salió el error en el super, 
 	// es porque al mandar llamar al constructor de la clase padre 

@@ -10,6 +10,17 @@ public class AppointmentDoctor implements ISchedulable{
 	private String time;
 	
 	
+	
+	/**
+	 * @param patient
+	 * @param doctor
+	 */
+	public AppointmentDoctor(Patient patient, Doctor doctor) {
+		this.patient = patient;
+		this.doctor = doctor;
+	}
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -35,7 +46,7 @@ public class AppointmentDoctor implements ISchedulable{
 		this.date = date;
 	}
 	public String getTime() {
-		return time;
+		return time + " hrs.";
 	}
 	public void setTime(String time) {
 		this.time = time;
@@ -44,7 +55,8 @@ public class AppointmentDoctor implements ISchedulable{
 	// Implementacion del metodo de la interface
 	@Override
 	public void schedule(Date date, String time) {
-		// TODO Auto-generated method stub
+		this.date = date;
+		this.time = time;
 	}
 
 }
