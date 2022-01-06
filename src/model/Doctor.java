@@ -1,4 +1,6 @@
 package model;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 /*El polimorfismo es la posibilidad de sobreescribir un 
  * metodo con comportamientos diferentes.
  * */
@@ -39,7 +41,7 @@ public class Doctor extends User
     
     // Metodo a nivel de la clase exterior para llamar a la clase estatica anidada
     // para añadir citas al doctor que se añadiran al array
-    public void addAvailableAppointment(Date date, String time) 
+    public void addAvailableAppointment(String date, String time) 
     {
     	// array list si se utiliza por dentro
     	// si se utilizara por fuera seria: Doctor.AvailableAppointment(date, time)
@@ -77,18 +79,26 @@ public class Doctor extends User
         private int id;
         private Date date;
         private String time;
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         
         // Constructor que requiere minimo la fecha
-        public AvailableAppointment(Date date, String time) 
+        public AvailableAppointment(String date, String time) 
         {
-        	this.date = date;
+        	try {
+				this.date = format.parse(date);
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         	this.time = time;
         }
         
         public int getId() {return id;}
         public void setId(int id) {this.id = id;}
         
-        public Date getDate() {return date;}
+        // Sobrecarga de metodos
+        public Date getDate() {return date;}								
+        public String getDate(String date) {return format.format(date);}
         public void setDate(Date date) {this.date = date;}        
 
         public String getTime() {return time;}
