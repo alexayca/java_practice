@@ -39,7 +39,7 @@ public class UIPatientMenu {
 				break;
 
 			case 2:
-				
+				showPatientMyAppoinments();
 				break;
 				
 			case 0:
