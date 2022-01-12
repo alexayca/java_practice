@@ -1,9 +1,10 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 /* ** ** ** **
  * Eventos de multiples fuentes
- *
+ *  Clic o combinacion de teclas
  *  */
 public class PruebaAcciones {
     public static void main(String[] args) {
@@ -33,7 +34,10 @@ class MarcoAccion extends JFrame{
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 class PanelAccion extends JPanel{
     public PanelAccion() {
-            // Creamos los botones
+        AccionColor accionAmarillo = new AccionColor("Amarillo", new ImageIcon("src/ico/yellow.gif"), Color.YELLOW );
+        AccionColor accionAzul = new AccionColor("Azul", new ImageIcon("src/ico/blue.gif"), Color.BLUE );
+        AccionColor accionRojo = new AccionColor("Rojo", new ImageIcon("src/ico/red.png"), Color.RED );
+/*            // Creamos los botones
         JButton botonAmarillo = new JButton("Amarillo");
         JButton botonAzul = new JButton("Azul");
         JButton botonRojo = new JButton("Rojo");
@@ -41,15 +45,22 @@ class PanelAccion extends JPanel{
         add(botonAmarillo);
         add(botonAzul);
         add(botonRojo);
-    }
+*/    }
 }
 
 
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 // Ponemos la lamina a la escucha, que se encargara de cambiar su color
 class AccionColor extends AbstractAction{
+    public AccionColor(String nombre, Icon icono, Color colorBoton) {
+        // Cuando se construya el objeto del evento se guardara clave: valor
+        putValue(Action.NAME, nombre);
+        putValue(Action.SMALL_ICON, icono);
+        putValue(Action.SHORT_DESCRIPTION, "Cambia el color de la lamina "+nombre);
+        putValue("Color_de_fondo", colorBoton);
+    }
 
-    @Override
+    @Override   // Se llama automaticamente cuando ocurre el evento
     public void actionPerformed(ActionEvent e) {
 
     }
