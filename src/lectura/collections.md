@@ -1,5 +1,5 @@
 # Collections
-https://platzi.com/clases/1629-java-oop/21597-collections/
+<https://platzi.com/clases/1629-java-oop/21597-collections/>
 
 Otras interfaces que son muy importantes en Java son los llamados Collections
 
@@ -55,14 +55,15 @@ La interfaz Map no hereda de la interfaz Collection porque representa una estruc
 
 Map
 
-Donde K es el key o clave
-Donde V es el value o valor
+Donde ```K``` es el key o clave
+Donde ```V``` es el value o valor
 
 Podemos declarar un map de la siguiente forma:
-
+```java
 Map<Integer, String> map = new HashMap<Integer, String>();
 Map<Integer, String> treeMap = new TreeMap<Integer, String>();
 Map<Integer, String> linkedHashMap = new LinkedHashMap<Integer, String>();
+```
 Como observas solo se puede construir el objeto con tres elementos que implementan de ella: HashMap, TreeMap y LinkedHashMap dejando fuera HashTable y SortedMap. SortedMap estará fuera pues es una interfaz y HashTable ha quedado deprecada pues tiene métodos redundantes en otras clases. Mira la funcionalidad de cada uno.
 
 Como te conté hace un momento Map tiene implementaciones:
@@ -74,24 +75,30 @@ TreeMap: El Mapa lo ordena de forma “natural”. Por ejemplo, si la clave son 
 Para iterar alguno de estos será necesario utilizar la interface Iterator y para recorrerlo lo haremos un bucle while así como se muestra:
 
 Para HashMap
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = map.keySet().iterator();
 while(it.hasNext()){
   Integer key = it.next();
   System.out.println("Clave: " + key + " -> Valor: " + map.get(key));
 }
+```
 Para LinkedHashMap
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = linkedHashMap.keySet().iterator();
 while(it.hasNext()){
   Integer key = it.next();
   System.out.println("Clave: " + key + " -> Valor: " + linkedHashMap.get(key));
 }
+```
 Para TreeMap
+```java
 // Imprimimos el Map con un Iterador
 Iterator it = treeMap.keySet().iterator();
 while(it.hasNext()){
   Integer key = it.next();
   System.out.println("Clave: " + key + " -> Valor: " + treeMap.get(key));
 }
+```
 Ahora lee esta lectura y en la sección de tutoriales cuéntanos en tus palabras cómo funciona Deque.

@@ -23,8 +23,8 @@ public class CambioEstadoVentana {
 
 class MarcoEstado extends JFrame{
     public MarcoEstado(){
-        setVisible(true);
         setBounds(300,300,500,350);
+        setVisible(true);
 
         // Creamos la instancia de la clase que esta a la escucha
         CambiaEstado nuevo_estado = new CambiaEstado();

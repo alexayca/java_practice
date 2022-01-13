@@ -14,8 +14,8 @@ public class EventosTeclado {
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 class MarcoConTeclas extends JFrame{
     public MarcoConTeclas(){
-        setVisible(true);
         setBounds(700,300,600,450);
+        setVisible(true);
         EventoDeTeclado tecla = new EventoDeTeclado();
         addKeyListener(tecla);
     }

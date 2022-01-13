@@ -17,8 +17,8 @@ public class EventosRaton {
 /* *** *** *** *** *** *** *** *** Objeto Fuente *** *** *** *** *** *** *** *** */
 class MouseFrame extends JFrame{
     public MouseFrame() /*throws HeadlessException*/ {
-        setVisible(true);
         setBounds(700,300,600,450);
+        setVisible(true);
         EventosDeraton objetoMouseListener = new EventosDeraton();
         addMouseListener(objetoMouseListener);
         addMouseMotionListener(objetoMouseListener);
