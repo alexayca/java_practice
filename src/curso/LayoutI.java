@@ -16,7 +16,9 @@ class MarcoLayout extends JFrame {
         setTitle("Prueba de Plantillas I");
         setBounds(600,350,600,300);
         PanelLayout miLamina = new PanelLayout();
-        add(miLamina);
+        PanelLayout2 mi2Lamina = new PanelLayout2();
+        add(miLamina, BorderLayout.NORTH);
+        add(mi2Lamina, BorderLayout.SOUTH);
     }
 }
 
@@ -26,13 +28,21 @@ class PanelLayout extends JPanel{
     public PanelLayout() {
         // Normalmente la disposicion y los elementos se establecen en el mismo sitio, en este caso en el constructor de la lamina
         //setLayout(new FlowLayout(FlowLayout.CENTER,75,30));  // Default FlowLayout.CENTER
-        setLayout(new BorderLayout(10,10));
-        add(new JButton("Amarillo"),BorderLayout.NORTH);
-        add(new JButton("Rojo"),BorderLayout.WEST);
-        add(new JButton("Azul"),BorderLayout.EAST);
-        add(new JButton("Verde"),BorderLayout.SOUTH);
-        add(new JButton("Violeta"),BorderLayout.CENTER);
+        setLayout(new FlowLayout(FlowLayout.CENTER));   // Los botones ocupan un espacio minimo
+        add(new JButton("Amarillo"));
+        add(new JButton("Verde"));
+
     }
 }
 
+
+/* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
+class PanelLayout2 extends JPanel{
+    public PanelLayout2() {
+        setLayout(new BorderLayout());      // Los botones ocuapan el ancho de la ventana
+        add(new JButton("Rojo"), BorderLayout.WEST);
+        add(new JButton("Azul"), BorderLayout.EAST);
+        add(new JButton("Violeta"), BorderLayout.CENTER);
+    }
+}
 
