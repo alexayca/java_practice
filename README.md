@@ -8,3 +8,6 @@ My firsts steps with JavaSE with OOP
 This project is a system that allows you to schedule new medical 
 appointments and will allow you to see which appointments are scheduled.
 
+
+## Other practices
+This repository includes practices from various online courses.

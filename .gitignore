@@ -23,6 +23,11 @@
 hs_err_pid*
 /bin/
 
+# Default ignored files [IntelliJ IDEA]
+/shelf/
+/workspace.xml
+/.idea
+
 # eclipse specific git ignore
 *.pydevproject
 #.project
