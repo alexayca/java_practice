@@ -1,10 +1,7 @@
-import jdk.dynalink.NamedOperation;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLOutput;
 
 public class CuadroTexto {
     public static void main(String[] args) {
@@ -23,7 +20,7 @@ class MarcoTexto extends JFrame{
 }
 
 class LaminaTexto extends JPanel{
-    private JTextField campo1;
+    private JTextField cuadroTexto1;    // Hereda de JTextComponent abstract
     private JLabel resultado;
 
     public LaminaTexto() {
@@ -34,12 +31,12 @@ class LaminaTexto extends JPanel{
         resultado=new JLabel("Resultado",JLabel.CENTER);         // Inherited from interface SwingConstants
         JLabel texto1 = new JLabel("email:");
         myPanel2.add(texto1);
-        campo1 = new JTextField("Captura",10);
-        myPanel2.add(campo1);
+        cuadroTexto1 = new JTextField("Captura",10);    // Instanciamos la clase
+        myPanel2.add(cuadroTexto1);
         add(resultado, BorderLayout.CENTER);       // Agrega resultado en el centro del panel
         JButton myButton = new JButton("OK");
-        IntroducirTexto myEvent = new IntroducirTexto();
-        myButton.addActionListener(myEvent);
+        IntroducirTexto myEvent = new IntroducirTexto();    // se crea el objeto listener
+        myButton.addActionListener(myEvent);        // Agrego el evento al boton
         myPanel2.add(myButton);     // Se agrega el boton a myPanel2
         add(myPanel2, BorderLayout.NORTH);  // Agrega myPanel2 en el borde norte del panel
     }
@@ -47,8 +44,8 @@ class LaminaTexto extends JPanel{
     private  class IntroducirTexto implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            int arrobas=0;
-            String email=campo1.getText().trim();   // Obtiene el texto y quita espacios en blanco
+            int arrobas=0;                                  // Al lanzarse el evento por el boton
+            String email= cuadroTexto1.getText().trim();   // Obtiene el texto y quita espacios en blanco del cuadro de texto
             for (int i=0;i<email.length();i++){
                 if (email.charAt(i)=='@'){
                     arrobas++;
