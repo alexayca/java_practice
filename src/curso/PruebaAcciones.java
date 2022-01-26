@@ -41,8 +41,8 @@ class MarcoAccion extends JFrame{
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 class PanelAccion extends JPanel{
     public PanelAccion() {
-        AccionColor accionAmarillo = new AccionColor("Amarillo", new ImageIcon("src/ico/yellow.gif"), Color.YELLOW );
-        AccionColor accionAzul = new AccionColor("Azul", new ImageIcon("src/ico/blue.gif"), Color.BLUE );
+        AccionColor accionAmarillo = new AccionColor("Amarillo", new ImageIcon("src/ico/yellow.png"), Color.YELLOW );
+        AccionColor accionAzul = new AccionColor("Azul", new ImageIcon("src/ico/blue.png"), Color.BLUE );
         AccionColor accionRojo = new AccionColor("Rojo", new ImageIcon("src/ico/red.png"), Color.RED );
             // Creamos los botones y Agregamos los botones a la lamina (objetos fuente botones)
         JButton botonAmarillo = new JButton(accionAmarillo);
