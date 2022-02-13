@@ -1,3 +1,5 @@
+package curso;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -41,9 +43,9 @@ class MarcoAccion extends JFrame{
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 class PanelAccion extends JPanel{
     public PanelAccion() {
-        AccionColor accionAmarillo = new AccionColor("Amarillo", new ImageIcon("src/ico/yellow.png"), Color.YELLOW );
-        AccionColor accionAzul = new AccionColor("Azul", new ImageIcon("src/ico/blue.png"), Color.BLUE );
-        AccionColor accionRojo = new AccionColor("Rojo", new ImageIcon("src/ico/red.png"), Color.RED );
+        AccionColor accionAmarillo = new AccionColor("Amarillo", new ImageIcon("src/curso/ico/yellow.png"), Color.YELLOW );
+        AccionColor accionAzul = new AccionColor("Azul", new ImageIcon("src/curso/ico/blue.png"), Color.BLUE );
+        AccionColor accionRojo = new AccionColor("Rojo", new ImageIcon("src/curso/ico/red.png"), Color.RED );
             // Creamos los botones y Agregamos los botones a la lamina (objetos fuente botones)
         JButton botonAmarillo = new JButton(accionAmarillo);
         add(botonAmarillo);
