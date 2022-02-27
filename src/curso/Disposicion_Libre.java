@@ -1,3 +1,8 @@
+/* * * * * *
+ * Al redimensionar la ventana, desaparecen los componentes.
+ * 
+ * */
+
 package curso;
 
 import javax.swing.*;
@@ -13,7 +18,7 @@ public class Disposicion_Libre {
 
 class Frame_Libre extends JFrame{
     public Frame_Libre() {
-        setBounds(300, 400, 1000, 350);
+        setBounds(300, 400, 800, 350);
         Panel_Libre myPanelFree = new Panel_Libre();
         add(myPanelFree);
         setVisible(true);
@@ -32,6 +37,8 @@ class Panel_Libre extends JPanel{
         JTextField c_apellido = new JTextField();
         JLabel edad = new JLabel("Edad: ");
         JTextField c_edad = new JTextField();
+        JLabel telefono = new JLabel("Telefono: ");
+        JTextField c_telefono = new JTextField();
 
         add(nombre);
         add(c_apellido);
@@ -39,6 +46,8 @@ class Panel_Libre extends JPanel{
         add(c_nombre);
         add(edad);
         add(c_edad);
+        add(telefono);
+        add(c_telefono);
 
     }
 }
@@ -46,22 +55,24 @@ class Panel_Libre extends JPanel{
 
 class DisposicionPropia implements LayoutManager {
 
-    private int x = 20;
+    private int x;
     private int y = 20;
 
     @Override
     public void layoutContainer(Container parent) {
+        int d = parent.getWidth();
+        x=d/2;
         int contador = 0;
         int cantidadComponentes = parent.getComponentCount();
 
         for (int i=0; i<cantidadComponentes;i++){
             contador++;
             Component c = parent.getComponent(i);
-            c.setBounds(x,y,100,20);
+            c.setBounds(x-100,y,100,20);
             x+=100;
             if (contador%2==0){
                 // Reinicia la ubicacion en X y despues de agregar dos componentes agrega el siguiente el la proxima linea
-                x=20;
+                x=d/2;
                 y+=40;
             }
 
