@@ -27,6 +27,12 @@ hs_err_pid*
 /shelf/
 /workspace.xml
 /.idea
+out/
+
+# IntelliJ IDEA new project settings
+java_practice.iml
+java_practice.ipr
+java_practice.iws
 
 # eclipse specific git ignore
 *.pydevproject
