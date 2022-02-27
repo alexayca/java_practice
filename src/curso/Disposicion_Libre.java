@@ -24,31 +24,67 @@ class Frame_Libre extends JFrame{
 class Panel_Libre extends JPanel{
     public Panel_Libre() {
 
-        setLayout(null);    // Indica que es disposicion libre
+        setLayout(new DisposicionPropia());    // Indica la disposicion creada
 
         JLabel nombre = new JLabel("Nombre: ");
-        JLabel apellido = new JLabel("Apellido: ");
         JTextField c_nombre = new JTextField();
+        JLabel apellido = new JLabel("Apellido: ");
         JTextField c_apellido = new JTextField();
-
-        nombre.setBounds(20,20,80,15);
-        c_nombre.setBounds(100,20,100,20);
-        apellido.setBounds(20,60,80,15);
-        c_apellido.setBounds(100,60,100,20);
+        JLabel edad = new JLabel("Edad: ");
+        JTextField c_edad = new JTextField();
 
         add(nombre);
-        add(apellido);
         add(c_apellido);
+        add(apellido);
         add(c_nombre);
+        add(edad);
+        add(c_edad);
 
-/*
-        JButton boton1 = new JButton("Boton A");
-        boton1.setBounds(50,50,150,50);
-        add(boton1);
+    }
+}
 
-        JButton boton2 = new JButton("Boton B");
-        boton2.setBounds(250,150,80,30);
-        add(boton2);
-*/
+
+class DisposicionPropia implements LayoutManager {
+
+    private int x = 20;
+    private int y = 20;
+
+    @Override
+    public void layoutContainer(Container parent) {
+        int contador = 0;
+        int cantidadComponentes = parent.getComponentCount();
+
+        for (int i=0; i<cantidadComponentes;i++){
+            contador++;
+            Component c = parent.getComponent(i);
+            c.setBounds(x,y,100,20);
+            x+=100;
+            if (contador%2==0){
+                // Reinicia la ubicacion en X y despues de agregar dos componentes agrega el siguiente el la proxima linea
+                x=20;
+                y+=40;
+            }
+
+        }
+    }
+
+    @Override
+    public void addLayoutComponent(String name, Component comp) {
+
+    }
+
+    @Override
+    public void removeLayoutComponent(Component comp) {
+
+    }
+
+    @Override
+    public Dimension preferredLayoutSize(Container parent) {
+        return null;
+    }
+
+    @Override
+    public Dimension minimumLayoutSize(Container parent) {
+        return null;
     }
 }
