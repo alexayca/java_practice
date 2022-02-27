@@ -36,10 +36,11 @@ class Panel_Muelle extends JPanel{
         add(boton3);
 
         Spring myMuelle = Spring.constant(0,10,100);
+        Spring myMuelleRigido = Spring.constant(30);
         // this hace referencia al borde del contenedor de la lamina, el primer muelle entre el boton1 y el borde izq
         myLayoutSpring.putConstraint(SpringLayout.WEST, boton1, myMuelle, SpringLayout.WEST,this);
-        myLayoutSpring.putConstraint(SpringLayout.WEST, boton2, myMuelle, SpringLayout.EAST, boton1);
-        myLayoutSpring.putConstraint(SpringLayout.WEST, boton3, myMuelle, SpringLayout.EAST, boton2);
+        myLayoutSpring.putConstraint(SpringLayout.WEST, boton2, myMuelleRigido, SpringLayout.EAST, boton1);
+        myLayoutSpring.putConstraint(SpringLayout.WEST, boton3, myMuelleRigido, SpringLayout.EAST, boton2);
         myLayoutSpring.putConstraint(SpringLayout.EAST, this, myMuelle, SpringLayout.EAST, boton3);
 
     }
