@@ -1,48 +1,49 @@
+```java
 /* * * * * * * 
  * https://platzi.com/clases/1629-java-oop/21592-enumerations/
- * Son tipos de datos muy especiales, sirve para declarar una colecciÛn de constantes.
+ * Son tipos de datos muy especiales, sirve para declarar una colecci√≥n de constantes.
  * 
  * * * * * * */
 package lectura;
 
 public class Enumerations {
 
-	// AsÌ podemos declarar un enumeration usando la palabra reservada enum.
+	// As√≠ podemos declarar un enumeration usando la palabra reservada enum.
 	public enum Day {
 		SUNDAY, MONDAY, TUESDAY, WEDNESDAY,
 		THURSDAY, FRIDAY, SATURDAY
 	}
 	
 	 // Crear referencias de enumerations de la siguiente forma:
-/*		 Day day;
+		 Day day;
 		 switch (day) {
 		 	case MONDAY:
-		 		System.out.println(ìMondays are good.î);
+		 		System.out.println(‚ÄúMondays are good.‚Äù);
 		 		break;
 		 	case FRIDAY:
-		 		System.out.println(ìFridays are niceî);
+		 		System.out.println(‚ÄúFridays are nice‚Äù);
 		 		break;
 		 	case SATURDAY: case: SUNDAY:
-		 		System.out.println(ìWeekends are the bestî);
+		 		System.out.println(‚ÄúWeekends are the best‚Äù);
 		 		break;
 		 	default:
-		 		System.out.println(ìMidweek are so-soî);
+		 		System.out.println(‚ÄúMidweek are so-so‚Äù);
 		 		break;
 		 }
-*/
+
 	
-		 // llamar un valor del enumeration asÌ:
+		 // llamar un valor del enumeration as√≠:
 			 Day.MONDAY;
 			 Day.FRIDAY;
 			 Day.SATURDAY;
 			 
-		// pueden tener atributos, mÈtodos y constructores, como se muestra:
+		// pueden tener atributos, m√©todos y constructores, como se muestra:
 
 				 public enum DayT {
 				   MONDAY("Lunes");
 				   TUESDAY("Jueves");
 				   FRIDAY("Viernes");
-				   SATURDAY("S·bado");
+				   SATURDAY("S√°bado");
 				   SUNDAY("Domingo");
 
 				   private String spanish;
@@ -55,9 +56,10 @@ public class Enumerations {
 				   }
 				 }
 				 
-				 // para utilizarlo lo podemos hacer asÌ:
+				 // para utilizarlo lo podemos hacer as√≠:
 					 System.out.println(Day.MONDAY);
-				// Imprimir·: MONDAY
+				// Imprimir√°: MONDAY
 					 System.out.println(Day.MONDAY.getSpanish());
-				// Imprimir·: Lunes
+				// Imprimir√°: Lunes
 }
+```
