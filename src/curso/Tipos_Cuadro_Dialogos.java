@@ -55,8 +55,10 @@ class PanelCuadroDialogo extends JPanel{
                 System.out.println("Pulsaste boton B");
                 JOptionPane.showInputDialog(PanelCuadroDialogo.this,"Introduce el dato", "Introduccion datos",2);
             }else if (e.getSource()==botonC) {
+                JOptionPane.showConfirmDialog(PanelCuadroDialogo.this,"Elige opcion", "V Confirmar",1);
                 System.out.println("Pulsaste boton C");
             }else {
+                JOptionPane.showOptionDialog(PanelCuadroDialogo.this,"Elige","Titulo de ventana",1,1,null,null,null);
                 System.out.println("Pulsaste boton D");
             }
 
