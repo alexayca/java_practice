@@ -13,9 +13,23 @@ import java.awt.event.ActionListener;
 
 
 public class Calculadora extends JApplet{
+
     public void init() {
+        final JFrame miFrame = new JFrame();
+        miFrame.setSize(500,300);
         LaminaCalculadora miLamina = new LaminaCalculadora();
-        add(miLamina);
+        miFrame.add(miLamina);
+        JButton botonCalculadora = new JButton("Calculadora");
+        botonCalculadora.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                miFrame.setVisible(!miFrame.isVisible());
+                // Una clase interna anonima, no podemos modificar ninguna propiedad del estado de una clase padre
+                // se coloca final en JFrame miFrame
+                // explicacion video 134 - 15:00
+            }
+        });
+        add(botonCalculadora);
     }
 }
 
