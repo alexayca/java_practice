@@ -40,7 +40,7 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         });
 
         laminaOpcion = new Panel_Buttons("", new String[]{
-                "String[]","Icon[]","Object[]"
+                "String[]","Icon[]","Object []"
         });
 
         laminaEntrada = new Panel_Buttons("", new String[]{
@@ -68,18 +68,42 @@ public class Frame_Ventanas_Dialogos extends JFrame {
 
     }
 
+    // -------------------------proporciona el mensaje----------------------------------
+    public Object dameMensaje(){
+        String s = laminaMensaje.dameSeleccion();
+        if (s.equals("Cadena")){
+            return cadenaMensaje;
+        } else if(s.equals("Icono")){
+            return iconoMensaje;
+        }else if(s.equals("Componente")){
+            return componenteMensaje;
+        }else if(s.equals("Otros")){
+            return objetoMensaje;
+        }else if(s.equals("Object[]")){
+            return new Object[]{
+                    cadenaMensaje,
+                    iconoMensaje,
+                    componenteMensaje,
+                    objetoMensaje
+            };
+        }else {
+            return null;
+        }
+    }
+
+    // -------------------------clase interna que gestiona los eventos----------------------------------
     private class AccionMostrar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(laminaTipo.dameSeleccion());
             if (laminaTipo.dameSeleccion().equals("Mensaje")){
-                JOptionPane.showMessageDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0);
+                JOptionPane.showMessageDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0);
             }else if (laminaTipo.dameSeleccion().equals("Confirmar")){
-                JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0,0);
+                JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0,0);
             }else if(laminaTipo.dameSeleccion().equals("Opcion")){
-                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, "Mensaje","Titulo",0,0,null,null,null);
+                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, dameMensaje(),"Titulo",0,0,null,null,null);
             }else if (laminaTipo.dameSeleccion().equals("Entrada")){
-                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0);
+                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0);
             }
         }
     }
