@@ -2,6 +2,8 @@ package VentanaDialogos;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Frame_Ventanas_Dialogos extends JFrame {
 
@@ -52,9 +54,18 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         JButton botonMostrar = new JButton("Mostrar");
         laminaBotonMostrar.add(botonMostrar);
 
+        botonMostrar.addActionListener(new AccionMostrar());
+
         add(panelSuperiorCuadricular, BorderLayout.CENTER);
         add(laminaBotonMostrar,BorderLayout.SOUTH);
 
 
+    }
+
+    private class AccionMostrar implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //System.out.println(laminaTipo.dameSeleccion());
+        }
     }
 }
