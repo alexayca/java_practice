@@ -4,11 +4,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class Frame_Ventanas_Dialogos extends JFrame {
 
     private Panel_Buttons laminaTipo, laminaTipoMensaje, laminaMensaje,
                             laminaConfirmar, laminaOpcion, laminaEntrada;
+    private String cadenaMensaje="Mensaje";
+    private Icon iconoMensaje = new ImageIcon("src/img/blue.png");
+    private Object objetoMensaje = new Date();
+    private Component componenteMensaje = new LaminaEjemplo();
+
 
     public Frame_Ventanas_Dialogos() throws HeadlessException {
 
@@ -66,6 +72,15 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(laminaTipo.dameSeleccion());
+            if (laminaTipo.dameSeleccion().equals("Mensaje")){
+                JOptionPane.showMessageDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0);
+            }else if (laminaTipo.dameSeleccion().equals("Confirmar")){
+                JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0,0);
+            }else if(laminaTipo.dameSeleccion().equals("Opcion")){
+                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, "Mensaje","Titulo",0,0,null,null,null);
+            }else if (laminaTipo.dameSeleccion().equals("Entrada")){
+                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,"Mensaje","Titulo",0);
+            }
         }
     }
 }
