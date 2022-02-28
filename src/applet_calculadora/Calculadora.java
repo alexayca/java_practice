@@ -1,8 +1,10 @@
 /* ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
  * Calculadora Grafica
  * PildorasInformaticas Java. Layouts III. Vídeo 83
+ * Convertir a applet. video 133
  *
  * ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** */
+package applet_calculadora;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,27 +12,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class Calculadora {
-    public static void main(String[] args) {
-        MarcoCalculadora myFrame = new MarcoCalculadora();
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setVisible(true);
-    }
-}
-
-
-/* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
-class MarcoCalculadora extends JFrame{
-    public MarcoCalculadora() throws HeadlessException {
-        setTitle("Calculadora");
-        setBounds(500,300,450,300);
-
+public class Calculadora extends JApplet{
+    public void init() {
         LaminaCalculadora miLamina = new LaminaCalculadora();
         add(miLamina);
-        //pack(); // Despues de agregar el Panel o Frame principal, indicamos que el contenedor
-                // se tiene que adaptar al tamaño por defecto de lo que contiene en su interior. class Window
     }
 }
+
 
 /* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
 class LaminaCalculadora extends JPanel{
@@ -127,15 +115,3 @@ class LaminaCalculadora extends JPanel{
     }// ends inner class GestionarCalculos -> ActionListener
 
 } // ends LaminaCalculadora -> JPanel
-
-
-/* *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** */
-
-/*
-Otra forma de evitar el 0 al inicio y sin necesidad de una variable boolean:
-if (pantalla.getText() == "0") {
-        pantalla.setText(entrada);
-} else {
-        pantalla.setText(display.getText() + entrada);
-}
-*/
