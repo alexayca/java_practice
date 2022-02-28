@@ -28,7 +28,7 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         laminaTipo = new Panel_Buttons("Tipo", primerGrupoBox);
 
         laminaTipoMensaje = new Panel_Buttons("Tipo de Mensaje", new String[]{
-                "ERROR_MESSAGE","INFORMATION_MESSAGE","QUESTION_MESSAGE","PLAIN_MESSAGE"
+                "ERROR_MESSAGE","INFORMATION_MESSAGE","WARNING_MESSAGE","QUESTION_MESSAGE","PLAIN_MESSAGE"
         });
 
         laminaMensaje = new Panel_Buttons("Mensaje", new String[]{
@@ -91,20 +91,39 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         }
     }
 
+    // -------------------------devuelve tipo de icono----------------------------------
+    public int dameIcono(){
+        String s = laminaTipoMensaje.dameSeleccion();
+        if(s.equals("ERROR_MESSAGE")){
+            return 0;
+        }else if(s.equals("INFORMATION_MESSAGE")){
+            return 1;
+        }else if(s.equals("WARNING_MESSAGE")){
+            return 2;
+        }
+        else if(s.equals("QUESTION_MESSAGE")){
+            return 3;
+        }else if(s.equals("PLAIN_MESSAGE")){
+            return -1;
+        }else
+            return 0;
+    }
+
+
     // -------------------------clase interna que gestiona los eventos----------------------------------
     private class AccionMostrar implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             //System.out.println(laminaTipo.dameSeleccion());
             if (laminaTipo.dameSeleccion().equals("Mensaje")){
-                JOptionPane.showMessageDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0);
+                JOptionPane.showMessageDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",dameIcono());
             }else if (laminaTipo.dameSeleccion().equals("Confirmar")){
-                JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0,0);
+                JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0,dameIcono());
             }else if(laminaTipo.dameSeleccion().equals("Opcion")){
-                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, dameMensaje(),"Titulo",0,0,null,null,null);
+                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, dameMensaje(),"Titulo",0,dameIcono(),null,null,null);
             }else if (laminaTipo.dameSeleccion().equals("Entrada")){
-                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",0);
+                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",dameIcono());
             }
         }
-    }
+    }   // END private class
 }
