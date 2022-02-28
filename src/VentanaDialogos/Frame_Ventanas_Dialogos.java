@@ -40,7 +40,7 @@ public class Frame_Ventanas_Dialogos extends JFrame {
         });
 
         laminaOpcion = new Panel_Buttons("Opcion", new String[]{
-                "String[]","Icon[]","Object []"
+                "String[]","Icon[]","Object[]"
         });
 
         laminaEntrada = new Panel_Buttons("Entrada", new String[]{
@@ -108,6 +108,37 @@ public class Frame_Ventanas_Dialogos extends JFrame {
             return 0;
     }
 
+    // -------------------------da opciones a la lamina opciones ----------------------------------
+    public Object[] dameOpciones(Panel_Buttons lamina){
+        String s = lamina.dameSeleccion();
+        if (s.equals("String[]")){
+            return new String[]{
+                    "Amarillo",
+                    "Azul",
+                    "Rojo"
+            };
+        }else if (s.equals("Icon[]")){
+            return new Icon[]{
+                    new ImageIcon("src/img/yellow.png"),
+                    new ImageIcon("src/img/blue.png"),
+                    new ImageIcon("src/img/red.png")
+            };
+        }else if(s.equals("Object[]")){
+            return new Object[]{
+                    cadenaMensaje,
+                    iconoMensaje,
+                    componenteMensaje,
+                    objetoMensaje
+            };
+        }
+        else{
+            return null;
+        }
+
+    }
+
+    // -------------------------da opciones a la lamina opciones ----------------------------------
+
 
     // -------------------------clase interna que gestiona los eventos----------------------------------
     private class AccionMostrar implements ActionListener {
@@ -119,9 +150,14 @@ public class Frame_Ventanas_Dialogos extends JFrame {
             }else if (laminaTipo.dameSeleccion().equals("Confirmar")){
                 JOptionPane.showConfirmDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo",dameTipo(laminaConfirmar), dameTipo(laminaTipoMensaje));
             }else if(laminaTipo.dameSeleccion().equals("Opcion")){
-                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, dameMensaje(),"Titulo",0, dameTipo(laminaTipoMensaje),null,null,null);
+                JOptionPane.showOptionDialog(Frame_Ventanas_Dialogos.this, dameMensaje(),"Titulo",0, dameTipo(laminaTipoMensaje),null,dameOpciones(laminaOpcion),null);
             }else if (laminaTipo.dameSeleccion().equals("Entrada")){
-                JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo", dameTipo(laminaTipoMensaje));
+                if(laminaEntrada.dameSeleccion().equals("Campo de texto")){
+                    JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this,dameMensaje(),"Titulo", dameTipo(laminaTipoMensaje));
+                }else{
+                    JOptionPane.showInputDialog(Frame_Ventanas_Dialogos.this, dameMensaje(), "Titulo",dameTipo(laminaTipoMensaje),null,new String[]{"Amarillo", "Azul", "Rojo"},"Azul");
+                }
+
             }
         }
     }   // END private class
