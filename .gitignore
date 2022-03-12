@@ -27,6 +27,7 @@ hs_err_pid*
 /shelf/
 /workspace.xml
 /.idea
+src/.idea
 out/
 
 # IntelliJ IDEA new project settings
