@@ -1,6 +1,13 @@
 /* * * * * *
 * Videos Excepciones 142 -
 *
+* En tiempo de ejecucion
+* IOException (excepciones comprobadas)
+* RuntimeException (excepciones no comprobadas)
+*
+* Clausula throws, lanzamiento de excepciones
+*
+*
 * */
 package excepciones;
 
