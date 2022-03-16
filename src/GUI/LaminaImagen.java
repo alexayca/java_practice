@@ -22,6 +22,7 @@ public class LaminaImagen extends JPanel {
     public void paintComponent(Graphics g){
         super.paintComponent(g);
 
+        // excepcion no comprobada (null pointer exception)
         if (imagen==null){
             g.drawString("No podemos cargar la imagen",10,10);
         }else{
