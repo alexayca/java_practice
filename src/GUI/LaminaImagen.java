@@ -19,21 +19,11 @@ public class LaminaImagen extends JPanel {
 
     }
 
-    public void paintComponent(Graphics g){
+    public void paintComponent(Graphics g) throws NullPointerException{
         super.paintComponent(g);
 
-        // excepcion no comprobada (null pointer exception)
-        if (imagen==null){
-            g.drawString("No podemos cargar la imagen",10,10);
-        }else{
-
-            try {
-                imagen = ImageIO.read(new File("GUI/images/857409.png"));
-            }
-            catch (IOException e){
-                System.out.println("La imagen no se encuentra disponible.");
-            }
-
+        // excepcion no comprobada (null pointer exception)        
+        try{
             int alturaImagen = imagen.getHeight(this);
             int anchoImagen = imagen.getWidth(this);
 
@@ -46,6 +36,8 @@ public class LaminaImagen extends JPanel {
 
             // this hace referencia al objeto donde nos encontramos
             System.out.println("Propiedades imagen:\n\tAncho: " + alturaImagen +" Alto: " + anchoImagen);
+        }catch(NullPointerException e){
+            g.drawString("No se ha podido cargar la imagen", 10, 10);
         }
     }
 
