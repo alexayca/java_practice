@@ -7,7 +7,22 @@
 *   Se ejecuta el programa con el boton debug
 *       Se presentara la vista debug con panel debug, variables y breakpoints
 *    Step over : avanza una linea mas depues de la pausa
-*    Step Into
+*    Step Into : permite depurar un programa con varios archivos
+*
+*   Se pueden introducir varios puntos de interrupcion
+*   El boton resume permite saltar al siguiente punto de interrupcion,
+* ejecutando las lineas intermedias de forma normal
+*
+* Skip all breakpoint
+*
+* Hay puntos de ejecucion condicionales
+* se pueden usar las variables del programa
+* ejem: i==3
+*
+* Tambien el panel expresiones
+* para hacer comprobaciones indicamos que nos muestre el valor de esta sentencia
+* cuando ocurra, si es que ocurre o determinar si se ejecuta cierta expresion
+* expressions: codigo de programacion para comprobar que valor puede tomar una variable
 *
 *
 * El programa llena una matriz con numeros aleatorios
