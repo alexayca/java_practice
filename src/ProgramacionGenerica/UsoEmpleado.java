@@ -4,8 +4,14 @@
  * ArrayList permite crear listas dinamicas
  * permite almacenar objetos, pero no tipos primitivos
  * los elementos se incluyen en el mismo orden que se van introduciendo
+ * Las posiciones empiezan en 0
+ *
+ * Para recorrer el ArrayList se usa el bucle ForEach, con un bucle Fori
+ * no se cuenta con indices, por lo que se vuelve mas conplejo.
+ *
  *
  * ArrayList<data_type> nombre_del_arrayList
+ *
  *
 */
 
@@ -37,8 +43,14 @@ public class UsoEmpleado {
         listaEmpleados.add(new Empleado("Ana", 45, 2500));
         listaEmpleados.add(new Empleado("Antonio", 55, 2000));
         listaEmpleados.add(new Empleado("Maria", 25, 2600));
-        listaEmpleados.add(new Empleado("jose", 35, 2200));
-        listaEmpleados.add(new Empleado("Pedro", 22, 2200));
+        listaEmpleados.add(new Empleado("Jose", 35, 2200));
+        listaEmpleados.add(new Empleado("Jaime", 35, 2200));
+
+        // Para insertar un elemento en una posicion especifica
+        // set incluye o remplaza un objeto
+        listaEmpleados.set(1, new Empleado("Olga", 33, 2200));
+        // get obtiene un elemento de una posicion deseada
+        System.out.println(listaEmpleados.get(1).dameDatos()); // muestra la direccion de memoria
 
         // Si se sabe que ya no se van a incluir mas elementos
         // Se puede cerrar el array list, optimizando recursos
@@ -51,6 +63,20 @@ public class UsoEmpleado {
         for (Empleado emp : listaEmpleados) {
             System.out.println(emp.dameDatos());
         }
+
+        for (int i = 0; i < listaEmpleados.size(); i++) {
+            Empleado e = listaEmpleados.get(i); // Para obtener la posicion de cada elemento
+            System.out.println(e.dameDatos());
+        }
+
+        // Tambien se puede copiar el contenido de un ArrayList en un Array convencional
+        Empleado arrayConvEmpleados[]=new Empleado[listaEmpleados.size()];
+        listaEmpleados.toArray(arrayConvEmpleados); // copia los elementos del arrayList al array tradicional
+
+        for (int i = 0; i < arrayConvEmpleados.length; i++) {
+            System.out.println(arrayConvEmpleados[i].dameDatos());
+        }
+
     }
 }
 
