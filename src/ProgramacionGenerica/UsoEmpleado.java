@@ -10,7 +10,7 @@
  * no se cuenta con indices, por lo que se vuelve mas conplejo.
  *
  *
- * ArrayList<data_type> nombre_del_arrayList
+ * ArrayList<parametro_de_tipo> nombre_del_arrayList = new ArrayList<parametro_de_tipo>();
  *
  *
 */
