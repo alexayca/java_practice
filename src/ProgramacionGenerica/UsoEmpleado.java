@@ -18,6 +18,7 @@
 package ProgramacionGenerica;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class UsoEmpleado {
     public static void main(String[] args) {
@@ -63,6 +64,17 @@ public class UsoEmpleado {
         for (Empleado emp : listaEmpleados) {
             System.out.println(emp.dameDatos());
         }
+
+
+        // Iterador<tipo_de_elemento> = ArrayList.iterator(); Devuelve un objeto de tipo iterator
+        Iterator<Empleado> myIterator = listaEmpleados.iterator();
+
+        while (myIterator.hasNext()) {
+            // El iterador devuelve el siguiente elemento (su direccion) con next()
+            // o bien se va recorriendo el ArrayList
+            System.out.println(myIterator.next().dameDatos());
+        }
+
 
         for (int i = 0; i < listaEmpleados.size(); i++) {
             Empleado e = listaEmpleados.get(i); // Para obtener la posicion de cada elemento
