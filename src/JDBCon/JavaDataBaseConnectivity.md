@@ -45,3 +45,18 @@ InteliJ IDE
 Despues en el signo ```+``` y se busca el archivo jar
 Observaremos que se agrego a "External libraries"
 
+
+##Consultas preparadas
+- Permiten pasar parametros a las sentencias SQL (modifica el valor del criterio en tiempo de ejecucion)
+- Previenen de ataques de inyeccion SQL
+- Tienen mejor rendimiento (Son sentencias precompiladas y reutilizables)
+
+Ejemplo:
+
+    Consulta normal:
+        SELECT * FROM productos WHERE seccion= 'deportes' AND paisOrigen='Mexico'
+    Consulta preparada:
+        SELECT * FROM productos WHERE seccion=? AND paisOrigen=?
+    El ? se llama parametro de la consulta, modifica el parametro en tiempo de ejecucion.
+
+

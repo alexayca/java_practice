@@ -23,7 +23,7 @@ public class ConectaProductos {
             // 2 crear objeto statement
             Statement miStatement = miConexion.createStatement();
             // 3 ejecutar sql
-            ResultSet miResultset = miStatement.executeQuery("SELECT * FROM alcaldía");
+            ResultSet miResultset = miStatement.executeQuery("SELECT * FROM alcaldia");
             // 4 recorrer el resultset (mientras haya un registro más)
             while (miResultset.next()){
                 // Convertimos a cadena de texto; con los nombres de cada columna como aparecen en la base de datos

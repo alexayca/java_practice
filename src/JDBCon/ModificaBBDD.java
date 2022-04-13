@@ -16,7 +16,7 @@ public class ModificaBBDD {
             Connection miConexion = DriverManager.getConnection("jdbc:mariadb://localhost:3306/test","alexa","");
             Statement miStatement = miConexion.createStatement();
 
-            // Insertar registros
+            // Insertar registros, tambien se puede utilizar la clausula UPDATE, DELETE
             String instruccionInsertSQL = "INSERT INTO " +
                     "deposito(nombre, id_alcaldia, id_colonia, dir_detalle) " +
                     "VALUES('Patio Maravilla', 2, 246,'Poniente 152 y Av. maravillas, estacion la patera')";
