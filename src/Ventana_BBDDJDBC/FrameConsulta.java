@@ -5,14 +5,15 @@ import java.awt.*;
 
 public class FrameConsulta extends JFrame {
 
-    JComboBox secciones;
-    JComboBox paises;
-    JTextArea resultado;
+    private JComboBox secciones;
+    private JComboBox paises;
+    private JTextArea resultado;
 
     public FrameConsulta(){
         setTitle("Consulta a BBDD");
         setBounds(500,300,400,400);
         setLayout(new BorderLayout());
+
         JPanel menus = new JPanel();
         menus.setLayout(new FlowLayout());
 
@@ -27,7 +28,7 @@ public class FrameConsulta extends JFrame {
         resultado = new JTextArea(4,50);
         resultado.setEditable(false);
 
-        add(resultado);
+        //add(resultado);
         menus.add(secciones);
         menus.add(paises);
         add(menus, BorderLayout.NORTH);
