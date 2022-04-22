@@ -2,6 +2,8 @@ package Ventana_BBDDJDBC;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 
 
@@ -10,6 +12,12 @@ public class FrameConsulta extends JFrame {
     private JComboBox secciones;
     private JComboBox paises;
     private JTextArea resultado;
+
+    private Connection myConnection;
+
+    private PreparedStatement enviaConsultaSeccion;
+    private final String consultaSeccion = "SELECT articleName, section, price, country " +
+                                             "FROM products WHERE section=?";
 
     public FrameConsulta(){
         setTitle("Consulta a BBDD");
@@ -37,12 +45,19 @@ public class FrameConsulta extends JFrame {
         add(resultado, BorderLayout.CENTER);
 
         JButton botonConsulta = new JButton("Consulta");
+        // ponemos el boton a la escucha
+        botonConsulta.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ejecutaConsulta();
+            }
+        });
         add(botonConsulta, BorderLayout.SOUTH);
 
 
         // --------------   Conexion a la base de datos  ----------------------------------------
         try {
-            Connection myConnection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/test","alexa","");
+            myConnection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/test","alexa","");
             Statement myStatementTest = myConnection.createStatement();
 
             // extraemos las secciones para el primer comboBox (UNIQUE)
@@ -69,6 +84,36 @@ public class FrameConsulta extends JFrame {
         }catch (Exception e){
 
         }
+
+    } // END CONSTRUCTOR
+
+    private void ejecutaConsulta(){
+
+         ResultSet rs = null;
+
+         try {
+
+             String seccion = (String)secciones.getSelectedItem();
+             enviaConsultaSeccion=myConnection.prepareStatement(consultaSeccion);
+             enviaConsultaSeccion.setString(1,seccion);
+             rs= enviaConsultaSeccion.executeQuery();
+
+             while (rs.next()){
+                resultado.append(rs.getString(1));
+                resultado.append(", ");
+                resultado.append(rs.getString(2));
+                resultado.append(", ");
+                resultado.append(rs.getString(3));
+                resultado.append(", ");
+                resultado.append(rs.getString(4));
+                resultado.append("\n");
+             }
+             rs.close();
+
+         }catch (Exception e){
+
+         }
+
 
     }
 

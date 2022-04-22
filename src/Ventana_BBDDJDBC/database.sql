@@ -33,6 +33,6 @@ INSERT INTO `test`.`products`
     ('Jugueteria', 'Heroina', '9', '2022-04-11 10:03', 'China', '0'),
     ('Confeccion', 'Blusa', '3', '2022-04-12 17:00', 'Italia', '1'),
     ('Deportes', 'Tenis', '20', '2022-04-14 18:55', 'China', '0'),
-    ('Deportes', 'Tenis', '20', '2022-04-14 18:59', 'China', '0')
+    ('Deportes', 'Googles', '20', '2022-04-14 18:59', 'China', '0')
     ;
 
