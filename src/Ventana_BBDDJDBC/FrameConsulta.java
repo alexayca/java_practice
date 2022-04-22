@@ -2,8 +2,7 @@ package Ventana_BBDDJDBC;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.sql.*;
 
 
@@ -82,6 +81,7 @@ public class FrameConsulta extends JFrame {
             // --------- carga paises para el 2o comboBox----------
             query = "SELECT DISTINCTROW country FROM products";
             rs=myStatementTest.executeQuery(query);
+            
             while (rs.next()){
                 paises.addItem(rs.getString(1));
             }
@@ -107,10 +107,12 @@ public class FrameConsulta extends JFrame {
                  enviaConsultaSeccion = myConnection.prepareStatement(consultaSeccion);
                  enviaConsultaSeccion.setString(1, seccion);
                  rs = enviaConsultaSeccion.executeQuery();
+
              }else if(seccion.equals("Todos") && !pais.equals("Todos")){
                  enviaConsultaPais = myConnection.prepareStatement(consultaPais);
-                 enviaConsultaPais.setString(1, seccion);
+                 enviaConsultaPais.setString(1, pais);
                  rs = enviaConsultaPais.executeQuery();
+
              }else  if(!seccion.equals("Todos") && !pais.equals("Todos")){
                  enviaConsultaTodo = myConnection.prepareStatement(consultaTodo);
                  // Tiene dos parametros la consulta
