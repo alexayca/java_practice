@@ -81,7 +81,7 @@ public class FrameConsulta extends JFrame {
             // --------- carga paises para el 2o comboBox----------
             query = "SELECT DISTINCTROW country FROM products";
             rs=myStatementTest.executeQuery(query);
-            
+
             while (rs.next()){
                 paises.addItem(rs.getString(1));
             }
