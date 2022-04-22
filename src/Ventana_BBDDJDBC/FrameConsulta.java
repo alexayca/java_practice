@@ -16,8 +16,14 @@ public class FrameConsulta extends JFrame {
     private Connection myConnection;
 
     private PreparedStatement enviaConsultaSeccion;
+    private PreparedStatement enviaConsultaPais;
+    private PreparedStatement enviaConsultaTodo;
     private final String consultaSeccion = "SELECT articleName, section, price, country " +
                                              "FROM products WHERE section=?";
+    private final String consultaPais ="SELECT articleName, section, price, country "  +
+                                        "FROM products WHERE country=?";
+    private final String consultaTodo ="SELECT articleName, section, price, country "  +
+                                        "FROM products WHERE section=? AND country=? ";
 
     public FrameConsulta(){
         setTitle("Consulta a BBDD");
@@ -93,10 +99,25 @@ public class FrameConsulta extends JFrame {
 
          try {
 
+             resultado.setText("");
              String seccion = (String)secciones.getSelectedItem();
-             enviaConsultaSeccion=myConnection.prepareStatement(consultaSeccion);
-             enviaConsultaSeccion.setString(1,seccion);
-             rs= enviaConsultaSeccion.executeQuery();
+             String pais = (String)paises.getSelectedItem();
+
+             if(!seccion.equals("Todos") && pais.equals("Todos")) {
+                 enviaConsultaSeccion = myConnection.prepareStatement(consultaSeccion);
+                 enviaConsultaSeccion.setString(1, seccion);
+                 rs = enviaConsultaSeccion.executeQuery();
+             }else if(seccion.equals("Todos") && !pais.equals("Todos")){
+                 enviaConsultaPais = myConnection.prepareStatement(consultaPais);
+                 enviaConsultaPais.setString(1, seccion);
+                 rs = enviaConsultaPais.executeQuery();
+             }else  if(!seccion.equals("Todos") && !pais.equals("Todos")){
+                 enviaConsultaTodo = myConnection.prepareStatement(consultaTodo);
+                 // Tiene dos parametros la consulta
+                 enviaConsultaTodo.setString(1, seccion);
+                 enviaConsultaTodo.setString(2, pais);
+                 rs = enviaConsultaTodo.executeQuery();
+             }
 
              while (rs.next()){
                 resultado.append(rs.getString(1));
