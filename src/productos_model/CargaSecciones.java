@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class CargaSecciones {
 
     Conexion miConexion;
-    private ResultSet rs;
+    public ResultSet rs;
 
     public CargaSecciones(){
         miConexion = new Conexion();

@@ -1,11 +1,13 @@
 package productos_view;
 
+import productos_controller.ControladorCargaSecciones;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MarcoAplicacion extends JFrame{
 
-    private JComboBox secciones;
+    public JComboBox secciones;
     private JComboBox paises;
     private JTextArea resultado;
 
@@ -36,5 +38,7 @@ public class MarcoAplicacion extends JFrame{
 
         JButton botonConsulta = new JButton("Consulta");
         add(botonConsulta, BorderLayout.SOUTH);
+
+        addWindowListener(new ControladorCargaSecciones(this));
     }
 }
