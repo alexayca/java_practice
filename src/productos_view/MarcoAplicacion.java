@@ -1,5 +1,6 @@
 package productos_view;
 
+import productos_controller.ControladorBotonEjecuta;
 import productos_controller.ControladorCargaMenus;
 
 import javax.swing.*;
@@ -9,7 +10,7 @@ public class MarcoAplicacion extends JFrame{
 
     public JComboBox secciones;
     public JComboBox paises;
-    private JTextArea resultado;
+    public JTextArea resultado;
 
     public MarcoAplicacion() {
         setTitle("Consulta a BBDD");
@@ -38,6 +39,8 @@ public class MarcoAplicacion extends JFrame{
 
         JButton botonConsulta = new JButton("Consulta");
         add(botonConsulta, BorderLayout.SOUTH);
+
+        botonConsulta.addActionListener(new ControladorBotonEjecuta(this));
 
         addWindowListener(new ControladorCargaMenus(this));
     }

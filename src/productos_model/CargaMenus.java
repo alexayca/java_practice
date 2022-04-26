@@ -44,6 +44,7 @@ public class CargaMenus {
             //}
             rs.close();
             rsPaises.close();
+            accesoBBDD.close();
 
         }catch (Exception e){
 
