@@ -1,4 +1,4 @@
-package productos_controller;
+package productos_model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

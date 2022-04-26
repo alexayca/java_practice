@@ -1,7 +1,5 @@
 package productos_model;
 
-import productos_controller.*;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -15,7 +13,18 @@ public class CargaSecciones {
         miConexion = new Conexion();
     }
 
-    public String ejecutaConsultas(){
+    public ResultSet ejecutaConsultas(){
+        Connection accesoBBDD= miConexion.doConnection();
+        try {
+            Statement secciones= accesoBBDD.createStatement();
+            return  rs = secciones.executeQuery("SELECT DISTINCTROW section FROM products");
+        }catch (Exception e){
+
+        }
+        return null;
+    }
+
+    /*public String ejecutaConsultas(){
 
         Productos miProducto = null;
         Connection accesoBBDD= miConexion.doConnection();
@@ -23,17 +32,18 @@ public class CargaSecciones {
         try{
             Statement secciones = accesoBBDD.createStatement();
             rs=secciones.executeQuery("SELECT DISTINCTROW section FROM products");
-            while (rs.next()){
+            //while (rs.next()){
+            //rs.previous();    // No aparece la primer seccion, por lo que se recorre el cursor uno hacia atras
                 miProducto=new Productos();
                 miProducto.setSection(rs.getString(1));
-                return miProducto.getSection();
-            }
+            //    return miProducto.getSection();
+            //}
             rs.close();
 
         }catch (Exception e){
 
         }
         return miProducto.getSection();
-    }
+    }*/
 
 }
