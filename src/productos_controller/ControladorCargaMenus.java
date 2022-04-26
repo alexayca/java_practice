@@ -1,18 +1,18 @@
 package productos_controller;
 
-import productos_model.CargaSecciones;
+import productos_model.CargaMenus;
 import productos_view.MarcoAplicacion;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 //import java.awt.event.WindowListener;   // implements
 
-public class ControladorCargaSecciones extends WindowAdapter {
+public class ControladorCargaMenus extends WindowAdapter {
 
-    CargaSecciones obj=new CargaSecciones();
+    CargaMenus obj=new CargaMenus();
     private MarcoAplicacion elMarco;
 
-    public ControladorCargaSecciones(MarcoAplicacion elMarco) {
+    public ControladorCargaMenus(MarcoAplicacion elMarco) {
         this.elMarco=elMarco;
     }
 
@@ -24,6 +24,9 @@ public class ControladorCargaSecciones extends WindowAdapter {
         try {
             while (obj.rs.next()){
                 elMarco.secciones.addItem(obj.rs.getString(1));
+            }
+            while (obj.rsPaises.next()){
+                elMarco.paises.addItem(obj.rsPaises.getString(1));
             }
 
         }catch (Exception exception){
