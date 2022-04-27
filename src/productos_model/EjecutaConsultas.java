@@ -16,6 +16,10 @@ public class EjecutaConsultas {
 
     private final String consultaSeccion="SELECT articleName, section, price, country " +
             "FROM products WHERE section=?";
+    private final String consultaPais ="SELECT articleName, section, price, country "  +
+            "FROM products WHERE country=?";
+    private final String consultaTodo ="SELECT articleName, section, price, country "  +
+            "FROM products WHERE section=? AND country=? ";
 
     public EjecutaConsultas(){
         miConexion=new Conexion();
@@ -36,8 +40,15 @@ public class EjecutaConsultas {
 
             } else if (seccion.equals("Todos") && !pais.equals("Todos")) {
                 //pruebas="Has escogido pais";
+                enviaConsultaPais=conecta.prepareStatement(consultaPais);
+                enviaConsultaPais.setString(1,pais);
+                rs=enviaConsultaPais.executeQuery();
             } else if (!seccion.equals("Todos") && !pais.equals("Todos")) {
                 //pruebas="Has escogido seccion y pais";
+                enviaConsultaTodos=conecta.prepareStatement(consultaTodo);
+                enviaConsultaTodos.setString(1,seccion);
+                enviaConsultaTodos.setString(2,pais);
+                rs=enviaConsultaTodos.executeQuery();
             }
             //return  pruebas;
         }catch (Exception e){
