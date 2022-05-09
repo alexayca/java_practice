@@ -7,3 +7,8 @@ Manejo de archivos y acceso a ficheros
         Reader
         Writer
 
+    - Buffers
+        BufferedReader
+            readLine()
+        BufferedWriter
+
