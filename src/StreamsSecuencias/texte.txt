@@ -1,0 +1,9 @@
+Secuencias (streams)
+Manejo de archivos y acceso a ficheros
+    - Flujo de bytes
+        InputStream
+        OutputStream
+    - Flujo de caracteres
+        Reader
+        Writer
+
