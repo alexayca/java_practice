@@ -5,6 +5,7 @@
 package StreamsSecuencias;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class LeyendoEscribiendoBytes {
@@ -27,8 +28,23 @@ public class LeyendoEscribiendoBytes {
 
             archivoLectura.close();
         }catch (IOException e){
-
+            System.out.println("Error de acceso a la imagen");
         }
         System.out.println(contadorBytes);  // Muestra el tamano del archivo
+
+        creaArchivoBinario(datosEntrada);   // Pasamos el array como parametro
+    } // END main
+
+
+    static void creaArchivoBinario(int datosNuevoFichero[]){
+        try {
+            FileOutputStream ficheroNuevo=new FileOutputStream("C:\\tmp\\3878-1-191919_copia.png");
+            for (int i=0;i<datosNuevoFichero.length;i++){
+                ficheroNuevo.write(datosNuevoFichero[i]);
+            }
+            ficheroNuevo.close();
+        }catch (IOException e){
+            System.out.println("Error al crear la imagen");
+        }
     }
 }
