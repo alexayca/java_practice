@@ -1,3 +1,8 @@
+/* * * * * * * * *
+*
+*
+* * * * * * * * */
+
 package StreamsSecuencias;
 
 
@@ -11,18 +16,43 @@ public class Serializando {
         Administrador jefe = new Administrador("Juan", 80000, 2022, 05, 11);
         jefe.setIncentivo(5000);
 
-        Empleado[] personal = new Empleado[3];
-        
+        Empleado[] personal = new Empleado[3];  // Se serializara el array de objetos personal
+
         personal[0] = jefe;
         personal[1] = new Empleado("Ana", 25000,2008,10,1);
         personal[2] = new Empleado("Luis", 18000,2012,9,15);
+
+        try {
+            // -- flujo de datos hacia el exterior, guardando el archivo --
+            ObjectOutputStream escribiendoFichero =
+                    new ObjectOutputStream(new FileOutputStream("C:\\tmp\\empleado.dat"));
+
+            // escribimos el objeto que llevamos al exterior
+            escribiendoFichero.writeObject(personal);
+            escribiendoFichero.close();
+
+            // -- flujo de datos hacia el interior --
+            ObjectInputStream recuperandoFichero =
+                    new ObjectInputStream(new FileInputStream("C:\\tmp\\empleado.dat"));
+
+            Empleado[] personalRecuperado=(Empleado[]) recuperandoFichero.readObject(); // cast del archivo leido como Object
+            recuperandoFichero.close();
+
+            // Leyendo el archivo
+            for (Empleado e : personalRecuperado){
+                System.out.println(e);  // utilizamos el metodo override toString 
+            }
+
+        }catch (Exception e){
+
+        }
     }
 
 }
 
 
 // -----------------------------------------------------------------------------------------
-class Empleado{
+class Empleado implements Serializable{ /* permite serializar la clase */
     private String nombre;
     private double sueldo;
     private Date fechaContrato;
@@ -57,7 +87,7 @@ class Empleado{
         sueldo+=aumento;
     }
     public String toString(){
-        return "Nombre = " + nombre + " ,sueldo = " + sueldo + " , fecha de contrato: " + fechaContrato;
+        return "Nombre = " + nombre + " ,su sueldo es " + sueldo + " , fecha de contrato: " + fechaContrato;
     }
 
 }
