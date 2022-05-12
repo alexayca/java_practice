@@ -14,8 +14,12 @@ class AccesoFicheros{
 
     public static void main(String[] args) {
 
+        String s=File.separator;
+        String rutaCompatible="C:\\tmp";    // new File("C:" +File.separator +"tmp")
+        rutaCompatible.replace("\\",s);
+
         // Ver los archivos y directorios de una ubicacion
-        File ruta=new File("C:\\tmp");
+        File ruta=new File(rutaCompatible);
         System.out.println(ruta.getAbsolutePath());
 
         String[] nombresArchivos= ruta.list();  // arreglo de los archivos en el directorio especificado
