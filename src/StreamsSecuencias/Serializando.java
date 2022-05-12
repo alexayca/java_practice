@@ -1,6 +1,8 @@
 /* * * * * * * * *
-*
-*
+* El compilador java genera automaticamente el SerialVersionUID
+* el cual al cambiar no permite leer archivos con una version diferente.
+* La solucion consiste en crear una constante statica final de tipo long,
+* otorgandole un valor unico propio
 * * * * * * * * */
 
 package StreamsSecuencias;
@@ -40,7 +42,7 @@ public class Serializando {
 
             // Leyendo el archivo
             for (Empleado e : personalRecuperado){
-                System.out.println(e);  // utilizamos el metodo override toString 
+                System.out.println(e);  // utilizamos el metodo override toString
             }
 
         }catch (Exception e){
@@ -53,6 +55,9 @@ public class Serializando {
 
 // -----------------------------------------------------------------------------------------
 class Empleado implements Serializable{ /* permite serializar la clase */
+
+    private static final long serialVersionUID = 12L;
+
     private String nombre;
     private double sueldo;
     private Date fechaContrato;
@@ -83,8 +88,8 @@ class Empleado implements Serializable{ /* permite serializar la clase */
         this.fechaContrato = fechaContrato;
     }
     public void SubirSueldo(double porcentaje){
-        double aumento = sueldo*porcentaje/100;
-        sueldo+=aumento;
+        double aumento = sueldo *porcentaje/100;
+        sueldo +=aumento;
     }
     public String toString(){
         return "Nombre = " + nombre + " ,su sueldo es " + sueldo + " , fecha de contrato: " + fechaContrato;
