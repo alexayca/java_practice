@@ -1,7 +1,6 @@
 package ClasesPropiasGenericas;
 
 import ProgramacionGenerica.*;
-
 import java.util.GregorianCalendar;
 
 public class MetodosGenericos {
@@ -33,7 +32,7 @@ public class MetodosGenericos {
                 new GregorianCalendar(2000,06,03)
         };
         System.out.println(MisMatrices.getMinor(fechas));   // muestra un formato de poca legibilidad
-        
+
 
         // Error en tiempo de compilacion al pasar un arreglo de Empleado,
         // porque no implementa la interfaz comparable, ademas de no saber que campo ordenar
