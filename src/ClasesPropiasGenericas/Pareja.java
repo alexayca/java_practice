@@ -1,4 +1,4 @@
-package ClasesPropias;
+package ClasesPropiasGenericas;
 
 // Con <> indicamos que es una clase generica T,U,K
 public class Pareja<T> {

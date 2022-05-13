@@ -1,4 +1,4 @@
-package ClasesPropias;
+package ClasesPropiasGenericas;
 
 public class UsoPareja {
     public static void main(String[] args) {
