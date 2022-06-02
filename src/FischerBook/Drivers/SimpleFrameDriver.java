@@ -1,4 +1,6 @@
-package FischerBook.Its;
+package FischerBook.Drivers;
+
+import FischerBook.Its.SimpleFrame;
 
 public class SimpleFrameDriver {
     public static void main(String[] args) {
