@@ -10,6 +10,7 @@ public class SimplePanelFrame extends SimpleFrame{
         ColorPanel CPSouth = new ColorPanel(Color.green);
         ColorPanel CPCenter = new ColorPanel(Color.blue);
 
+        // obtenemos el Container para agregar los Panels en el BorderLayout
         this.getContentPane().add(CPWest,BorderLayout.WEST);
         this.getContentPane().add(CPEast,BorderLayout.EAST);
         this.getContentPane().add(CPNorth,BorderLayout.NORTH);
