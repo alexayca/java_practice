@@ -10,4 +10,12 @@ appointments and will allow you to see which appointments are scheduled.
 
 
 ## Other practices
-This repository includes practices from various online courses.
+This repository includes practices from various online courses and book's exercises.
+
+
+## Model-View-Control
+
+- The (non-graphical) __model__ part of the program deals with storing, maintaining or manipulating the data.
+- The graphical __view__ part displays the data and provides the components for user interaction.
+- The (again non-graphical) __control__ part ensures that the user actions result in the desired responses by the program. The control part is the bridge between the model and view parts.
+
