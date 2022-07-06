@@ -52,3 +52,7 @@ local.properties
 .loadpath
 
 *.Zone.Identifier
+
+# Drawio Diagrams.net
+*.dtmp
+*.bkp

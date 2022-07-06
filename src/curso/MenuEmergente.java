@@ -1,3 +1,5 @@
+package curso;
+
 import javax.swing.*;
 import java.awt.*;
 
