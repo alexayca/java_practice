@@ -7,6 +7,7 @@ import java.awt.*;
 public class CounterFrame extends SimpleFrame {
     public CounterFrame(){
         CounterPanel counterPane = new CounterPanel();
+        // frame.getContentPane ...
         this.getContentPane().add(counterPane, BorderLayout.CENTER);
     }
 }
