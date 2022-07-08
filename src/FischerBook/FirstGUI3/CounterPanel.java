@@ -21,12 +21,11 @@ public class CounterPanel extends JPanel {
         this.add(downButton,BorderLayout.EAST);
         this.add(valueLabel,BorderLayout.CENTER);
 
-        // The next three lines will later be used to incorporate the listener
-/*
+        // The next three lines are used to incorporate the listener
         CounterListener countList = new CounterListener(this);
         upButton.addActionListener(countList);
         downButton.addActionListener(countList);
-*/
+
     }
 
     public void increment(){
