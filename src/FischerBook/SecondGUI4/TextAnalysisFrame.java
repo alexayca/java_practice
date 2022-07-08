@@ -2,9 +2,8 @@ package FischerBook.SecondGUI4;
 
 import FischerBook.Its.SimpleFrame;
 
-import javax.swing.*;
 import java.awt.*;
-import java.swing.JButton;
+import javax.swing.JButton;
 
 public class TextAnalysisFrame extends SimpleFrame {
 
