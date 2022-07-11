@@ -2,7 +2,7 @@ package FischerBook.FirstGUI3;
 
 public class CounterDriver {
     public static void main(String[] args){
-        CounterFrame cfr = new CounterFrame();
+        CounterDoubleFrame cfr = new CounterDoubleFrame();
         cfr.showIt();
     }
 }

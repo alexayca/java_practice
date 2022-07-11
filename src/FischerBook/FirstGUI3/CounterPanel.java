@@ -7,7 +7,7 @@ public class CounterPanel extends JPanel {
     private CounterModel counter;
     private JLabel valueLabel;
 
-    public CounterPanel(){
+    public CounterPanel(String label){
         counter = new CounterModel();
 
         BorderLayout bordLay = new BorderLayout();
@@ -18,7 +18,7 @@ public class CounterPanel extends JPanel {
         JButton resetButton = new JButton("Reset");
         valueLabel = new JLabel(""+counter.getValue(),SwingConstants.CENTER);
 
-        this.add(new JLabel(" Counter ",JLabel.CENTER),BorderLayout.NORTH);
+        this.add(new JLabel(label,JLabel.CENTER),BorderLayout.NORTH);
         this.add(downButton,BorderLayout.WEST);
         this.add(upButton,BorderLayout.EAST);
         this.add(valueLabel,BorderLayout.CENTER);

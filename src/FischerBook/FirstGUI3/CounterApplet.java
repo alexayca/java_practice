@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class CounterApplet extends JApplet {
     public void init(){
-        CounterPanel cPane=new CounterPanel();
+        CounterPanel cPane=new CounterPanel("Counter");
         this.getContentPane().add(cPane, BorderLayout.CENTER);
     }
 
