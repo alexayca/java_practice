@@ -24,6 +24,9 @@ public class CounterListener implements ActionListener{ /* interface */
         else if (actionCommand.equals("Down")){
             countPane.decrement();
         }
+        else if(actionCommand.equals("Reset")){
+            countPane.reset();
+        }
         else {
             System.out.println("ERROR: Unexpected ActionCommand");
         }

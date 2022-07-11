@@ -15,26 +15,40 @@ public class CounterPanel extends JPanel {
 
         JButton upButton = new JButton("Up");
         JButton downButton = new JButton("Down");
+        JButton resetButton = new JButton("Reset");
         valueLabel = new JLabel(""+counter.getValue(),SwingConstants.CENTER);
 
-        this.add(upButton,BorderLayout.WEST);
-        this.add(downButton,BorderLayout.EAST);
+        this.add(new JLabel(" Counter ",JLabel.CENTER),BorderLayout.NORTH);
+        this.add(downButton,BorderLayout.WEST);
+        this.add(upButton,BorderLayout.EAST);
         this.add(valueLabel,BorderLayout.CENTER);
+        this.add(resetButton,BorderLayout.SOUTH);
 
         // The next three lines are used to incorporate the listener
         CounterListener countList = new CounterListener(this);
         upButton.addActionListener(countList);
         downButton.addActionListener(countList);
+        resetButton.addActionListener(countList);
 
     }
 
     public void increment(){
         counter.increment();
-        valueLabel.setText(""+counter.getValue());
+        this.setValueCounter();
     }
 
     public void decrement(){
         counter.decrement();
+        this.setValueCounter();
+    }
+
+    public void reset(){
+        counter.reset();
+        this.setValueCounter();
+    }
+
+    private void setValueCounter(){
         valueLabel.setText(""+counter.getValue());
     }
-}
+
+}   // class
