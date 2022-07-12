@@ -18,6 +18,10 @@ public class CounterPanel extends JPanel {
         JButton resetButton = new JButton("Reset");
         valueLabel = new JLabel(""+counter.getValue(),SwingConstants.CENTER);
 
+        upButton.setToolTipText("Incrementar");
+        downButton.setToolTipText("Disminuir");
+        resetButton.setToolTipText("Restablecer a 0");
+
         this.add(new JLabel(label,JLabel.CENTER),BorderLayout.NORTH);
         this.add(downButton,BorderLayout.WEST);
         this.add(upButton,BorderLayout.EAST);
@@ -29,6 +33,10 @@ public class CounterPanel extends JPanel {
         upButton.addActionListener(countList);
         downButton.addActionListener(countList);
         resetButton.addActionListener(countList);
+
+        CounterKeyAdapter cka=new CounterKeyAdapter(this);
+        upButton.addKeyListener(cka);
+        downButton.addKeyListener(cka);
 
     }
 
