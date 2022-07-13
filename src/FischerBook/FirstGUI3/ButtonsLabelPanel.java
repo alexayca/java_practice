@@ -33,10 +33,17 @@ public class ButtonsLabelPanel extends JPanel {
         this.add(gridPanel,BorderLayout.CENTER);
         this.add(labelLastButtonPushed,BorderLayout.SOUTH);
 
+        ButtonsLabelListener buttonListener=new ButtonsLabelListener(this);
+        button1.addActionListener(buttonListener);
+        button2.addActionListener(buttonListener);
+        button3.addActionListener(buttonListener);
+        button4.addActionListener(buttonListener);
+
     }   // constructor
 
-    public int getValuePushed(){
-        return lastvalue.getvaluePushed();
+    public void showValuePushed(int v){
+        lastvalue.setvaluePushed(v);
+        labelLastButtonPushed.setText("Last button pushed was no. "+lastvalue.getvaluePushed());
     }
 
 
