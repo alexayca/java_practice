@@ -52,7 +52,7 @@ class Marco_Barra extends JFrame{
         
         
         // Construccion del menu
-        JMenu menu = new JMenu("Color");
+        JMenu menu = new JMenu("Color JMenu");
         menu.add(accionAzul);
         menu.add(accionRojo);
         menu.add(accionAmarillo);
@@ -63,6 +63,8 @@ class Marco_Barra extends JFrame{
         
         // Construccion de la barra de herramientas
         JToolBar barra_herramientas = new JToolBar();
+		barra_herramientas.setFloatable(true);
+		barra_herramientas.setName("JToolBar");
         barra_herramientas.add(accionAzul);
         barra_herramientas.add(accionRojo);
         barra_herramientas.add(accionAmarillo);
