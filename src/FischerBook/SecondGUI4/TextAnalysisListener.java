@@ -1,9 +1,8 @@
 package FischerBook.SecondGUI4;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class TextAnalysisListener implements ActionListener {
+public class TextAnalysisListener implements ActionListener, KeyListener {
 
     private TextAnalysisPanel taPanel;
 
@@ -14,5 +13,20 @@ public class TextAnalysisListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         taPanel.startAnalysisAndDisplayResult();
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        taPanel.startAnalysisAndDisplayResult();
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
