@@ -11,10 +11,9 @@ public class TextAnalysisPanel extends JPanel {
     private JLabel numberTextsAnalysed;
     private JLabel numberEsSeen;
     private JTextField inputField;
-    private TextAnalysisModel analysisModel;
+    private String TextInputField;
 
     public TextAnalysisPanel() {
-        analysisModel=new TextAnalysisModel();
 
         this.setBackground(Color.YELLOW);
         this.setLayout(new GridLayout(5,2,10,10));
@@ -81,12 +80,14 @@ public class TextAnalysisPanel extends JPanel {
         this.add(numberEsSeen);
     }
 
-    public void startAnalysisAndDisplayResult(){
-        String text=inputField.getText();
-        analysisModel.analyse(text);
+    public String resumeTextInputField(){
+        TextInputField=inputField.getText();
+        return (TextInputField);
+    }
+
+    public void displayResult(TextAnalysisModel analysisModel){
         lastTextLabel.setText(analysisModel.getCurrentText());
-        int noOfEs=analysisModel.getCurrentNumberOfEs();
-        numberOfEsLabel.setText(Integer.toString(noOfEs));
+        numberOfEsLabel.setText(Integer.toString(analysisModel.getCurrentNumberOfEs()));
         numberTextsAnalysed.setText(Integer.toString(analysisModel.getTotalNumberOfTexts()));
         numberEsSeen.setText(Integer.toString(analysisModel.getTotalNumberOfEs()));
         inputField.setText("");
