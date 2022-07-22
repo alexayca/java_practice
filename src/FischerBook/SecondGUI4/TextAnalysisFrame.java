@@ -8,7 +8,7 @@ import javax.swing.JButton;
 public class TextAnalysisFrame extends SimpleFrame {
 
     public TextAnalysisFrame() {
-        this.setSize(350,220);
+        this.setSize(400,220);
         TextAnalysisPanel taPanel=new TextAnalysisPanel();
         this.getContentPane().add(taPanel,BorderLayout.CENTER);
         TextAnalysisPanelButton tapButton=new TextAnalysisPanelButton(taPanel);

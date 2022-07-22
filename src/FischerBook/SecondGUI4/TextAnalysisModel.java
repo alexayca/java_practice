@@ -44,5 +44,7 @@ public class TextAnalysisModel {
     public void resetCounters(){
         totalNumberOfEs=0;
         totalNumberOfTexts=0;
+        currentNumberOfEs=0;
+        currentText="";
     };
 }

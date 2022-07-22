@@ -30,9 +30,15 @@ public class TextAnalysisPanelButton extends JPanel {
         restartButton.addKeyListener(taList);
     }
 
-    public void startAnalysisAndDisplayResult(){
+    public void startAnalysisAndDisplayResult(String source){
         String text=analysisPanel.resumeTextInputField();
-        analysisModel.analyse(text);
+        if (source=="Reset"){
+            analysisModel.resetCounters();
+        } else if (source=="Analyse") {
+            analysisModel.analyse(text);
+        }else {
+            System.out.println("Command not found");
+        }
         analysisPanel.displayResult(analysisModel);
     }
 
