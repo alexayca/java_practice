@@ -1,4 +1,8 @@
-package DAOPattern;
+/* * * * *
+ * DAO ->
+ *
+ * * */
+package DAOMVCPattern;
 
 import java.util.ArrayList;
 import java.util.List;

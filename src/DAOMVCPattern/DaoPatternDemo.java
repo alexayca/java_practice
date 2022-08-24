@@ -1,9 +1,10 @@
 /* * * * * *
  * http://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm
+ * DAO ->
  *
  *  * * * * * */
 
-package DAOPattern;
+package DAOMVCPattern;
 
 public class DaoPatternDemo {
     public static void main(String[] args) {

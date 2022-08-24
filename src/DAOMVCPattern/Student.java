@@ -1,8 +1,15 @@
-package DAOPattern;
+/* * * * *
+ * DAO ->
+ * MVC -> model
+ * * */
+package DAOMVCPattern;
 
 public class Student {
     private String name;
     private int rollNo;
+
+    Student(){
+    }
 
     Student(String name, int rollNo){
         this.name = name;
