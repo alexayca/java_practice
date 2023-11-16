@@ -17,6 +17,36 @@ public class PelotaThread {
     }
 }
 
+/** clase que implementa la interfaz runnable (1) */
+class PelotaHilos implements Runnable{
+    private Pelota pelotas;
+    private Component componenteLamina;
+
+    public PelotaHilos(Pelota pelota, Component componenteLamina){
+        /* al asignar estos atributos a la clase es posible utilizarlos en el metodo run() */
+        this.pelotas = pelota;
+        this.componenteLamina = componenteLamina;
+    }
+
+    /** Codigo correspondiente a la tarea que deseamos sea simultanea
+     * en este caso la aparicion de la pelota varias veces
+     * hay que retomar los atributos "pelotas" y "componenteLamina" correspondiente a esta clase
+     * */
+    @Override
+    public void run() {
+        for (int i = 1; i < 3000; i++) {
+            pelotas.mueve_pelota(componenteLamina.getBounds());
+            componenteLamina.paint(componenteLamina.getGraphics());
+            // pausa en la ejecucion de un hilo
+            try {
+                Thread.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
 /** Movimiento de la pelota */
 class Pelota{
     // Mueve la pelota invirtiendo posicion si choca con limites
@@ -109,12 +139,28 @@ class MarcoRebote extends JFrame{
     public void comienza_el_juego(){
         Pelota pelota = new Pelota();
         lamina.add(pelota);
-        for (int i = 1; i < 80000; i++) {
+
+        // 2 Codigo implementado para el metodo run()
+        // De otra forma es un programa monohilo
+/*        
+        for (int i = 1; i < 3000; i++) {
             pelota.mueve_pelota(lamina.getBounds());
             lamina.paint(lamina.getGraphics());
             // pausa en la ejecucion de un hilo
-
+            try {
+                Thread.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
+ */
+
+        // 3 creamos una instancia de la clase que implementa la interfaz runnable
+        Runnable runnable = new PelotaHilos(pelota, lamina);
+
+        // 4    Thread(Runnable target)
+        Thread thread = new Thread(runnable);
+        thread.start(); // indicamos al hilo de ejecucion que comience
     }
 
     private LaminaPelota lamina;
