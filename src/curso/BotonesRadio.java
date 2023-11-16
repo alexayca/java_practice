@@ -1,3 +1,5 @@
+package curso;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,7 @@ public class BotonesRadio {
     public static void main(String[] args) {
         MarcoRadioBoton miFrame = new MarcoRadioBoton();
         miFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
+        miFrame.setVisible(true);
     }
 }
 
