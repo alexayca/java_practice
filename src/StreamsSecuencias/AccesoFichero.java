@@ -15,7 +15,7 @@ class LeerFichero{
 
     public void leer(){
         try {
-            FileReader entrada = new FileReader("C:\\Users\\alexa\\git_alexayca\\java_practice\\src\\StreamsSecuencias\\texte.txt");
+            FileReader entrada = new FileReader("C:\\tmp\\texte.txt");
             int c=0;    // int c=entrada.read(); // lee el primer caracter antes de entrar al fichero
 
             while (c!=-1) /* -1 representa el final del archivo*/ {

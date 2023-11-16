@@ -7,13 +7,13 @@ public class BotonesRadio {
     public static void main(String[] args) {
         MarcoRadioBoton miFrame = new MarcoRadioBoton();
         miFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
     }
 }
 
 class MarcoRadioBoton extends JFrame{
     public MarcoRadioBoton() throws HeadlessException {
         setBounds(550,300,550,350);
-        setVisible(true);
         LaminaRadioButton miPanel =  new LaminaRadioButton();
         add(miPanel);
     }
