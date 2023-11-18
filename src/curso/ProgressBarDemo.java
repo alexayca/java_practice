@@ -38,7 +38,8 @@ import javax.swing.*;
 import java.beans.*;
 import java.util.Random;
 
-public class ProgressBarDemo extends JPanel
+public class ProgressBarDemo
+        extends JPanel
         implements ActionListener,
         PropertyChangeListener {
 
@@ -81,12 +82,14 @@ public class ProgressBarDemo extends JPanel
         }
     }
 
+    // constructor invoca a la clase padre JPanel
     public ProgressBarDemo() {
         super(new BorderLayout());
 
         //Create the demo's UI.
         startButton = new JButton("Start");
         startButton.setActionCommand("start");
+        // 'this' es la interface ActionListener de la instancia
         startButton.addActionListener(this);
 
         progressBar = new JProgressBar(0, 100);
