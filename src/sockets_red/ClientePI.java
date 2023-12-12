@@ -1,10 +1,14 @@
-/** Chat pildoras informaticas Sockets 190.1 */
+/** Chat pildoras informaticas Sockets
+ * 190.I - 191.II
+ *
+ * */
 
 package sockets_red;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -55,9 +59,16 @@ class LaminaMarcoCliente extends JPanel{
         public void actionPerformed(ActionEvent e) {
             System.out.println(campo1.getText());
 
-            // creacion del socket
             try {
-                Socket misocket = new Socket("10.4.3.120",9999);
+                // creacion del socket (tendido del puente para la comunicacion)
+                Socket misocket = new Socket("127.0.0.1",9999);
+                // flujo de datos de salida
+                // se indica que por el socket circulara el flujo de datos
+                DataOutputStream flujo_salida = new DataOutputStream(misocket.getOutputStream());
+                // que datos van a circular
+                flujo_salida.writeUTF(campo1.getText());
+                flujo_salida.close();
+
             }catch (UnknownHostException uhe){
                 uhe.printStackTrace();
             }catch (IOException ioe){
