@@ -2,6 +2,8 @@
  * Archivo guardado en: 
  * /{proyecto}/Source Packages/{package}/SvUsuarios.java
  * /primerPrueba/Source Packages/servlets/SvUsuarios.java
+ *
+ * index.jsp > Servlet > ControladorLogico > ControladorDePersistencia > DB
  */
 package servlets;
 
@@ -15,12 +17,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import logica.Controladora;
 import logica.Usuario;
 
 
 @WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
 public class SvUsuarios extends HttpServlet {
 
+    Controladora control = new Controladora();  // se crea instancia para que cualquier metodo la pueda utlizar
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -61,13 +66,16 @@ public class SvUsuarios extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         
-        // simulamos una base de datos (logica) con una lista
+        
         List<Usuario> listaUsuarios = new ArrayList<>();
+        listaUsuarios = control.traerUsuarios();
+        
+        /*// simulamos una base de datos (logica) con una lista
         listaUsuarios.add(new Usuario("123","Porfirio","Diaz","55555555"));
         listaUsuarios.add(new Usuario("456","Francisco","Villa","77777777"));
         listaUsuarios.add(new Usuario("789","Emiliano","Zapata","33333333"));
+        */
         
-        //
         HttpSession miSesion = request.getSession();    // tomar la sesion 
         miSesion.setAttribute("listaUsuariosA", listaUsuarios);  
         
@@ -95,6 +103,15 @@ public class SvUsuarios extends HttpServlet {
         String telefono = request.getParameter("telefono");
         
         System.out.println("Los datos recibidos en el servidor son: " +"\n" +id +"\n"+nombre+"\n" + apellido+"\n" +telefono+"\n");
+        
+        Usuario usu = new Usuario();
+        usu.setDni(id);
+        usu.setNombre(nombre);
+        usu.setApellido(apellido);
+        usu.setTelefono(telefono);
+        control.crearUsuario(usu);
+        
+        response.sendRedirect("index.jsp");
     }
 
     /**
