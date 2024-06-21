@@ -58,11 +58,14 @@ __<%! %>__ Para hacer uso exclusivo de declaración de variables y metodos de in
 
 Es una clase de java que se utiliza como punto intermedio entre una pagina JSP y el servidor web donde esta alojada la logica de una aplicación.
 
-Se encarga de recibir peticiones o request desde un cliente, tratarlas y analizarlas si es necesario realzar alguna solicitud en particular o brindar una determinada respuesta o response.
+Se encarga de recibir peticiones o request desde un cliente, tratarlas y analizarlas si es necesario realzar alguna solicitud en particular o brindar una determinada respuesta o response. En muchas ocasiones por cada clase se tiene un servlet.
 
 Para poder tratar cada una de las peticiones, utiliza una serie de metodos donde dependiendo del verbo por el cual se reciba la peticion (GET, POST, PUT, DELETE, etc)
 - __doGet()__ metodo que recibe las solicitudes GET.
 - __doPost()__ metodo que recibe las solicitudes POST.
 
-En muchas ocasiones por cada clase se tiene un servlet
+- __getParameter()__ obtiene el valor de un parametro enviado (request) por el cliente vía los metodos GET o POST.
 
+Se puede implementar la comunicacion jsp de dos maneras. 
+* Con un JSP que se comunica a un SERVLET (como entidades independientes)
+* Que el SERVLET funcione como un JSP, dentro del servlet se muestra el codigo HTML que visualizara el usuario con __processRequest()__ 
