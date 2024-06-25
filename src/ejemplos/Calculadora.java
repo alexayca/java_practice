@@ -1,4 +1,4 @@
-package Calculadora;
+package ejemplos;
 
 /* ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
  * Calculadora Grafica

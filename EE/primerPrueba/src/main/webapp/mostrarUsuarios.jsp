@@ -21,8 +21,8 @@ Archivo guardado en:
             for(Usuario user : listaUsuarios){
             %>
                 <p><b>Usuario: <%=cont%></b></p>
-                <% cont = cont++; %>
-                <p>ID: <%= user.getDni()%></p>
+                <% cont++; %>
+                <p>DNI: <%= user.getDni()%></p>
                 <p>Nombre: <%= user.getNombre()%></p>
                 <p>Apellidos: <%= user.getApellido()%></p>
                 <p>ITelefono: <%= user.getTelefono()%></p>

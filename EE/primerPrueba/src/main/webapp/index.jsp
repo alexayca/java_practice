@@ -22,7 +22,7 @@ Archivo guardado en:
         <h1>Datos del cliente</h1>
         <%-- Se envia al servlet de usuarios --%>
         <form action="SvUsuarios" method="POST">
-            <p><label>ID:</label><input type="text" name="id"></p>
+            <p><label>DNI</label><input type="text" name="dni"></p>
             <p><label>Nombre:</label><input type="text" name="nombre"></p>
             <p><label>Apellido:</label><input type="text" name="apellido"></p>
             <p><label>Telefono:</label><input type="text" name="telefono"></p>
@@ -33,6 +33,14 @@ Archivo guardado en:
         <h1>Ver lista de usuarios</h1>
         <form action="SvUsuarios" method="GET">
             <button type="submit">Consultar</button>
+        </form>
+        
+        
+                <h1>Eliminar usuarios</h1>
+                <p>Ingrese la Id del usuario que quiere eliminar</p>
+        <form action="SvUsuarios" method="POST">
+            <p><label>Id: </label><input type="text" name="id_usuario"></p>
+            <button type="submit">Eliminar Usuario</button>
         </form>
         
     </body>
