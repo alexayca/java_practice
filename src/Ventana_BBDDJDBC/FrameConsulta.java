@@ -62,7 +62,7 @@ public class FrameConsulta extends JFrame {
 
         // --------------   Conexion a la base de datos  ----------------------------------------
         try {
-            myConnection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/test","alexa","");
+            myConnection = DriverManager.getConnection("jdbc:mariadb://localhost:3306/test","root","");
             Statement myStatementTest = myConnection.createStatement();
 
             // extraemos las secciones para el primer comboBox (UNIQUE)
