@@ -4,20 +4,20 @@
 package servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import logica.Controladora;
+import logica.Usuario;
 
 
-@WebServlet(name = "SvEliminar", urlPatterns = {"/SvEliminar"})
-public class SvEliminar extends HttpServlet {
+@WebServlet(name = "SvEditar", urlPatterns = {"/SvEditar"})
+public class SvEditar extends HttpServlet {
     
-    // se puede trasladar a la sesion de usuario para no crear multiples instancias
-    Controladora control = new Controladora();  // se crea instancia para que cualquier metodo la pueda utlizar
+    Controladora control = new Controladora();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,7 +33,7 @@ public class SvEliminar extends HttpServlet {
 
     }
 
-
+   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -45,7 +45,17 @@ public class SvEliminar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        int id_editar = Integer.parseInt(request.getParameter("id_usuarioEdit"));
+        Usuario usu = control.traerUsuario(id_editar);
+        
+        // se guarda como atributo de sesion para poder acceder
+        HttpSession missesion = request.getSession();
+        missesion.setAttribute("usuEditar",usu);
+        
+        // redireccion al JSP
+        response.sendRedirect("editar.jsp");
+        
     }
 
     /**
@@ -59,8 +69,23 @@ public class SvEliminar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int id_eliminar = Integer.parseInt(request.getParameter("id_usuario"));   // se recibe en forma de texto
-        control.borrarUsuario(id_eliminar);
+        
+        // Desde el formulario se toma el name de la etiqueta input
+        String dni = request.getParameter("dni");
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String telefono = request.getParameter("telefono");
+        
+        // recuperamos el usuario de la sesion
+        Usuario usu = (Usuario)request.getSession().getAttribute("usuEditar");
+        usu.setDni(dni);
+        usu.setNombre(nombre);
+        usu.setApellido(apellido);
+        usu.setTelefono(telefono);
+        control.editarUsuario(usu);
+        
+        response.sendRedirect("index.jsp");
+        
     }
 
     /**

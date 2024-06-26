@@ -3,6 +3,7 @@
  * /{proyecto}/Source Packages/{package}/Servlet.java
  * /primerPrueba/Source Packages/servlets/SvUsuarios.java
  *
+ * JSP > Servlet > Lógica > BD
  * index.jsp > Servlet > ControladorLogico > ControladorDePersistencia > DB
  */
 package servlets;
@@ -64,8 +65,6 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        
         
         List<Usuario> listaUsuarios = new ArrayList<>();
         listaUsuarios = control.traerUsuarios();
@@ -94,7 +93,6 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // processRequest(request, response);
         
         // Desde el formulario se toma el name de la etiqueta input
         String dni = request.getParameter("dni");
@@ -122,6 +120,6 @@ public class SvUsuarios extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }
 
 }

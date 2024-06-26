@@ -22,6 +22,7 @@ Archivo guardado en:
             %>
                 <p><b>Usuario: <%=cont%></b></p>
                 <% cont++; %>
+                <p>ID: <%= user.getId()%></p>
                 <p>DNI: <%= user.getDni()%></p>
                 <p>Nombre: <%= user.getNombre()%></p>
                 <p>Apellidos: <%= user.getApellido()%></p>

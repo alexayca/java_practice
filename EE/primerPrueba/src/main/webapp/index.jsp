@@ -36,12 +36,21 @@ Archivo guardado en:
         </form>
         
         
-                <h1>Eliminar usuarios</h1>
-                <p>Ingrese la Id del usuario que quiere eliminar</p>
-        <form action="SvUsuarios" method="POST">
+        <h1>Eliminar usuarios</h1>
+        <p>Ingrese la Id del usuario que quiere eliminar</p>
+        <form action="SvEliminar" method="POST">
             <p><label>Id: </label><input type="text" name="id_usuario"></p>
             <button type="submit">Eliminar Usuario</button>
         </form>
+        
+        
+                <h1>Editar usuarios</h1>
+        <p>Ingrese la Id del usuario que quiere editar</p>
+        <form action="SvEditar" method="GET">
+            <p><label>Id: </label><input type="text" name="id_usuarioEdit"></p>
+            <button type="submit">Editar Usuario</button>
+        </form>
+        
         
     </body>
 </html>
