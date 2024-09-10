@@ -46,7 +46,7 @@ class MarcoServidor extends JFrame implements Runnable {
         System.out.println("Hilo a la escucha");
 
         try {
-            // se programa el socket para abrir un puerto y tenerlo a la escucha
+            // se programa el socket TCP para abrir un puerto y tenerlo a la escucha
             ServerSocket servidor = new ServerSocket(9999);
             while (true){   // bucle infinito
                 // aceptar conexion del exterior

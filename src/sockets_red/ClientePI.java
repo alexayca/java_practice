@@ -60,7 +60,7 @@ class LaminaMarcoCliente extends JPanel{
             System.out.println(campo1.getText());
 
             try {
-                // creacion del socket (tendido del puente para la comunicacion)
+                // creacion del socket TCP (tendido del puente para la comunicacion)
                 Socket misocket = new Socket("127.0.0.1",9999);
                 // flujo de datos de salida
                 // se indica que por el socket circulara el flujo de datos
