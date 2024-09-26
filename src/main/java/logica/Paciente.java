@@ -5,25 +5,34 @@ package logica;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author alexa
  */
+@Entity
 public class Paciente extends Persona{
     
-    private int id_paciente;
+    //private int id_paciente;
     private boolean seguro_social;
     private String tipo_sangre;
+    
+    @OneToOne
     private Responsable responsable; // Relacion 1:1
+    
+    @OneToMany(mappedBy = "pacien")
     private List<Turno> listaTurnos;    // Relacion 1:n
 
+    
     public Paciente() {
     }
 
-    public Paciente(int id_paciente, boolean seguro_social, String tipo_sangre, Responsable responsable, List<Turno> listaTurnos, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
+    public Paciente( boolean seguro_social, String tipo_sangre, Responsable responsable, List<Turno> listaTurnos, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
         super(DNI, fecha_nacimiento, nombre, apellido, direccion, telefono);
-        this.id_paciente = id_paciente;
+
         this.seguro_social = seguro_social;
         this.tipo_sangre = tipo_sangre;
         this.responsable = responsable;
@@ -38,14 +47,14 @@ public class Paciente extends Persona{
         this.tipo_sangre = tipo_sangre;
     }
 
-    public int getId_paciente() {
+/*    public int getId_paciente() {
         return id_paciente;
     }
 
     public void setId_paciente(int id_paciente) {
         this.id_paciente = id_paciente;
     }
-
+*/
     public boolean isSeguro_social() {
         return seguro_social;
     }

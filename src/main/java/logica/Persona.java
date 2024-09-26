@@ -4,20 +4,46 @@
 package logica;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author alexa
+ * 
+ * no persiste como tabla pero exista como plantilla para las clases hijas
+ * creando una tabla por clase hija, con este mapeo el ID debe estar en la clase padre
+ * annotations JPA
+ * Project Lombok permite agregar varias funcionalidades con anotaciones (no implementado)
  */
+@Entity 
+@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
 public class Persona {
 
+    // tiene ID autogenerado desde la clase padre que hereda a clase hijas
+    // usando la misma estrategia de generación
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
     private String DNI;
+    
+    // debemos mapear el tipo Data indicando la temporalidad
+    @Temporal(TemporalType.DATE)
+    
     private Date fecha_nacimiento;
     private String nombre;
     private String apellido;
     private String direccion;
     private String telefono;
 
+    
     public Persona() {
     }
 
