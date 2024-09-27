@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ import javax.persistence.TemporalType;
  * @author alexa
  */
 @Entity
-public class Turno {
+public class Turno implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,11 +32,11 @@ public class Turno {
     private String padecimiento;
     
     @ManyToOne
-    @JoinColumn(name="id_turno")
+    @JoinColumn(name="id_turno_odonto")
     private Odontologo odonto;  // relacion n:1 mediante un objeto
 
     @ManyToOne
-    @JoinColumn(name="id_turno2")
+    @JoinColumn(name="id_turno_pacien")
     private Paciente pacien;
     
     public Turno() {
@@ -78,6 +79,22 @@ public class Turno {
 
     public void setHora_turno(String hora_turno) {
         this.hora_turno = hora_turno;
+    }
+
+    public Odontologo getOdonto() {
+        return odonto;
+    }
+
+    public void setOdonto(Odontologo odonto) {
+        this.odonto = odonto;
+    }
+
+    public Paciente getPacien() {
+        return pacien;
+    }
+
+    public void setPacien(Paciente pacien) {
+        this.pacien = pacien;
     }
     
     

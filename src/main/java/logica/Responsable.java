@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 
@@ -11,16 +12,15 @@ import javax.persistence.Entity;
  * @author alexa
  */
 @Entity
-public class Responsable extends Persona {
-    //private int id_responsable;
+public class Responsable extends Persona implements Serializable {
+
     private String tipo_relacion;
 
     public Responsable() {
     }
 
-    public Responsable(String tipo_relacion, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
-        super(DNI, fecha_nacimiento, nombre, apellido, direccion, telefono);
-        //this.id_responsable = id_responsable;
+    public Responsable(String tipo_relacion, int id, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
+        super(id, DNI, fecha_nacimiento, nombre, apellido, direccion, telefono);
         this.tipo_relacion = tipo_relacion;
     }
 
@@ -31,14 +31,5 @@ public class Responsable extends Persona {
     public void setTipo_relacion(String tipo_relacion) {
         this.tipo_relacion = tipo_relacion;
     }
-/*
-    public int getId_responsable() {
-        return id_responsable;
-    }
-
-    public void setId_responsable(int id_responsable) {
-        this.id_responsable = id_responsable;
-    }
- */   
     
 }

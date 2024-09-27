@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
@@ -14,9 +15,8 @@ import javax.persistence.OneToOne;
  * @author alexa
  */
 @Entity
-public class Paciente extends Persona{
+public class Paciente extends Persona implements Serializable{
     
-    //private int id_paciente;
     private boolean seguro_social;
     private String tipo_sangre;
     
@@ -30,9 +30,8 @@ public class Paciente extends Persona{
     public Paciente() {
     }
 
-    public Paciente( boolean seguro_social, String tipo_sangre, Responsable responsable, List<Turno> listaTurnos, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
-        super(DNI, fecha_nacimiento, nombre, apellido, direccion, telefono);
-
+    public Paciente( boolean seguro_social, String tipo_sangre, Responsable responsable, List<Turno> listaTurnos, int id, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
+        super(id, DNI, fecha_nacimiento, nombre, apellido, direccion, telefono);
         this.seguro_social = seguro_social;
         this.tipo_sangre = tipo_sangre;
         this.responsable = responsable;
@@ -47,14 +46,6 @@ public class Paciente extends Persona{
         this.tipo_sangre = tipo_sangre;
     }
 
-/*    public int getId_paciente() {
-        return id_paciente;
-    }
-
-    public void setId_paciente(int id_paciente) {
-        this.id_paciente = id_paciente;
-    }
-*/
     public boolean isSeguro_social() {
         return seguro_social;
     }

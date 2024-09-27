@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ import javax.persistence.TemporalType;
  */
 @Entity 
 @Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public class Persona {
+public class Persona implements Serializable {
 
     // tiene ID autogenerado desde la clase padre que hereda a clase hijas
     // usando la misma estrategia de generación
@@ -36,8 +37,8 @@ public class Persona {
     
     // debemos mapear el tipo Data indicando la temporalidad
     @Temporal(TemporalType.DATE)
-    
     private Date fecha_nacimiento;
+    
     private String nombre;
     private String apellido;
     private String direccion;
@@ -47,7 +48,8 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona( String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
+    public Persona(int id, String DNI, Date fecha_nacimiento, String nombre, String apellido, String direccion, String telefono) {
+        this.id = id;
         this.DNI = DNI;
         this.fecha_nacimiento = fecha_nacimiento;
         this.nombre = nombre;
@@ -102,6 +104,14 @@ public class Persona {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     
     
