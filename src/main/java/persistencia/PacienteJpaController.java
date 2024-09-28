@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import logica.Paciente;
 import persistencia.exceptions.NonexistentEntityException;
 
@@ -22,6 +23,10 @@ import persistencia.exceptions.NonexistentEntityException;
  */
 public class PacienteJpaController implements Serializable {
 
+    public PacienteJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ConsultorioO_PU");
+    }
+       
     public PacienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

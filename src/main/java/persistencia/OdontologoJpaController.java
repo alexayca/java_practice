@@ -6,6 +6,7 @@ package persistencia;
 import java.io.Serializable;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import logica.Turno;
@@ -31,6 +32,11 @@ public class OdontologoJpaController implements Serializable {
         return emf.createEntityManager();
     }
 
+    // CRUD crea una instancia de la EMF
+    public OdontologoJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ConsultorioO_PU");
+    }
+    
     public void create(Odontologo odontologo) {
         if (odontologo.getListaTurnos() == null) {
             odontologo.setListaTurnos(new ArrayList<Turno>());

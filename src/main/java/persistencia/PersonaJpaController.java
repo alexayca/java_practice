@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import logica.Persona;
@@ -20,6 +21,11 @@ import persistencia.exceptions.NonexistentEntityException;
  */
 public class PersonaJpaController implements Serializable {
 
+            
+    public PersonaJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ConsultorioO_PU");
+    }
+       
     public PersonaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

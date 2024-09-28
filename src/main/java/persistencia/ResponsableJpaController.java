@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import logica.Responsable;
@@ -19,7 +20,11 @@ import persistencia.exceptions.NonexistentEntityException;
  * @author alexa
  */
 public class ResponsableJpaController implements Serializable {
-
+                
+    public ResponsableJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ConsultorioO_PU");
+    }
+       
     public ResponsableJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }

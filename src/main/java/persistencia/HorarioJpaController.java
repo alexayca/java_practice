@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import logica.Horario;
@@ -23,6 +24,11 @@ public class HorarioJpaController implements Serializable {
     public HorarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
+    
+    public HorarioJpaController() {
+        this.emf = Persistence.createEntityManagerFactory("ConsultorioO_PU");
+    }
+        
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
