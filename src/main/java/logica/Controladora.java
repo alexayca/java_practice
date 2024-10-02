@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.util.List;
 import persistencia.ControladoraPersistencia;
 
 /**
@@ -23,6 +24,22 @@ public class Controladora {
         user.setRol(rol);
         controlPersis.crearUsuario(user);
         
+    }
+
+    public List<Usuario> getUsuarios() {
+        return controlPersis.getUsuarios();
+    }
+
+    public void borrarUsuario(int id) {
+        controlPersis.borrarUsuario(id);
+    }
+
+    public Usuario traerUsuario(int id) {
+        return controlPersis.traerUsuario(id);
+    }
+
+    public void editarUsuario(Usuario usuario) {
+        controlPersis.editarUsuario(usuario);
     }
     
 }

@@ -32,11 +32,11 @@ public class Turno implements Serializable{
     private String padecimiento;
     
     @ManyToOne
-    @JoinColumn(name="id_turno_odonto")
+    @JoinColumn(name="id_odontolo")
     private Odontologo odonto;  // relacion n:1 mediante un objeto
 
     @ManyToOne
-    @JoinColumn(name="id_turno_pacien")
+    @JoinColumn(name="id_paciente")
     private Paciente pacien;
     
     public Turno() {

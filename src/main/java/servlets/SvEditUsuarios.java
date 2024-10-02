@@ -1,11 +1,9 @@
 /*
- * El servlet puede considerarse muy semejante a una API
+ * 
  */
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,12 +17,11 @@ import logica.Usuario;
  *
  * @author alexa
  */
-@WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
-public class SvUsuarios extends HttpServlet {
-
+@WebServlet(name = "SvEditUsuarios", urlPatterns = {"/SvEditUsuarios"})
+public class SvEditUsuarios extends HttpServlet {
+    
     Controladora control = new Controladora();
-    
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -51,16 +48,15 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        List<Usuario> listUsers = new ArrayList<Usuario>();
-        listUsers = control.getUsuarios();
-        
-        HttpSession mysession = request.getSession();
-        mysession.setAttribute("listaUsuarios", listUsers);
-        
-        System.out.println("Se ha hecho una peticion GET desde el servlet"+ listUsers.get(0));
-        
-        response.sendRedirect("verusuarios.jsp");   // case sensitive
+        // obtenemos el id enviado por el formulario
+       int id = Integer.parseInt(request.getParameter("id"));
+       // buscar en DB
+        Usuario usuario = control.traerUsuario(id);
+        // asignamos los valores a las sesion
+        HttpSession misesion = request.getSession();
+        misesion.setAttribute("usuarioEditar", usuario);
+        System.out.println("Peticion GET para editar usuario: "+ usuario.getNombre_usuario());
+        response.sendRedirect("editarusuarios.jsp");
         
     }
 
@@ -75,15 +71,21 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String usuario = request.getParameter("usuario");    // la referencia es tag name del formulario
-        String password = request.getParameter("password");
+        String nombreUsuario = request.getParameter("usuarioname");
+        String contra = request.getParameter("password");
         String rol = request.getParameter("rol");
-        System.out.println("Se ha hecho una peticion POST desde el servlet "+usuario+" "+password+" "+rol);
         
-        control.crearUsuario(usuario, password, rol);
-                
-        response.sendRedirect("index.jsp");
+        Usuario usuario = (Usuario)request.getSession().getAttribute("usuarioEditar");
+        System.out.println("Peticion POST para cambiar al usuario: " +nombreUsuario+"|"+ usuario.getNombre_usuario());
+        
+        usuario.setNombre_usuario(nombreUsuario);
+        usuario.setPassword(contra);
+        usuario.setRol(rol);
+        
+        control.editarUsuario(usuario);
+        
+        //response.sendRedirect("verusuarios.jsp"); // se muestran los datos sin modificar
+        response.sendRedirect("SvUsuarios");
         
     }
 

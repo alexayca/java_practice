@@ -1,30 +1,25 @@
 /*
- * El servlet puede considerarse muy semejante a una API
+ * 
  */
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import logica.Controladora;
-import logica.Usuario;
 
 /**
  *
  * @author alexa
  */
-@WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
-public class SvUsuarios extends HttpServlet {
-
+@WebServlet(name = "SvEliminarUsuarios", urlPatterns = {"/SvEliminarUsuarios"})
+public class SvEliminarUsuarios extends HttpServlet {
+    
     Controladora control = new Controladora();
-    
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -51,17 +46,7 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        List<Usuario> listUsers = new ArrayList<Usuario>();
-        listUsers = control.getUsuarios();
-        
-        HttpSession mysession = request.getSession();
-        mysession.setAttribute("listaUsuarios", listUsers);
-        
-        System.out.println("Se ha hecho una peticion GET desde el servlet"+ listUsers.get(0));
-        
-        response.sendRedirect("verusuarios.jsp");   // case sensitive
-        
+
     }
 
     /**
@@ -76,15 +61,10 @@ public class SvUsuarios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String usuario = request.getParameter("usuario");    // la referencia es tag name del formulario
-        String password = request.getParameter("password");
-        String rol = request.getParameter("rol");
-        System.out.println("Se ha hecho una peticion POST desde el servlet "+usuario+" "+password+" "+rol);
-        
-        control.crearUsuario(usuario, password, rol);
-                
-        response.sendRedirect("index.jsp");
-        
+        int id = Integer.parseInt(request.getParameter("id"));
+        control.borrarUsuario(id);
+        //response.sendRedirect("verusuarios.jsps"); // siguen mostrandose los datos eliminados
+        response.sendRedirect("SvUsuarios");
     }
 
     /**
