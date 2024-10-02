@@ -10,6 +10,7 @@ import logica.Usuario;
  * @author alexa
  */
 public class ControladoraPersistencia {
+    
     HorarioJpaController horaJPA = new HorarioJpaController();
     OdontologoJpaController odontologoJPA = new OdontologoJpaController();
     PacienteJpaController pacienteJPA = new PacienteJpaController();
@@ -19,6 +20,10 @@ public class ControladoraPersistencia {
     TurnoJpaController turnoJPA = new TurnoJpaController();
     UsuarioJpaController usuarioJPA = new UsuarioJpaController();
 
+    public ControladoraPersistencia() {
+    }
+
+    
     public void crearUsuario(Usuario user) {
         usuarioJPA.create(user);
     }
