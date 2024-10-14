@@ -1,11 +1,10 @@
 /*
- * El servlet puede considerarse muy semejante a una API
+ * El servleet solo captura los datos necesarios para pasarlos a la aplicacion
  */
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,18 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import logica.Controladora;
-import logica.Usuario;
 
 /**
  *
  * @author alexa
  */
-@WebServlet(name = "SvUsuarios", urlPatterns = {"/SvUsuarios"})
-public class SvUsuarios extends HttpServlet {
-
+@WebServlet(name = "SvLogin", urlPatterns = {"/SvLogin"})
+public class SvLogin extends HttpServlet {
+    
     Controladora control = new Controladora();
-    
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -52,16 +49,6 @@ public class SvUsuarios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        List<Usuario> listUsers = new ArrayList<Usuario>();
-        listUsers = control.getUsuarios();
-        
-        HttpSession mysession = request.getSession();
-        mysession.setAttribute("listaUsuarios", listUsers);
-        
-        System.out.println("Se ha hecho una peticion GET desde el servlet"+ listUsers.get(0));
-        
-        response.sendRedirect("verusuarios.jsp");   // case sensitive
-        
     }
 
     /**
@@ -75,15 +62,19 @@ public class SvUsuarios extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String usuario = request.getParameter("usuario");    // la referencia es tag name del formulario
+        String usuario = request.getParameter("user");
         String password = request.getParameter("password");
-        String rol = request.getParameter("rol");
-        System.out.println("Se ha hecho una peticion POST desde el servlet "+usuario+" "+password+" "+rol);
         
-        control.crearUsuario(usuario, password, rol);
-                
-        response.sendRedirect("verusuarios.jsp");
+        boolean validacion = false;
+        validacion = control.comprobarIngreso(usuario, password);
+        
+        if (validacion == true) {
+            HttpSession miSesion = request.getSession(true);
+            miSesion.setAttribute("usuario", usuario);
+            response.sendRedirect("index.jsp");
+        }else{
+            response.sendRedirect("loginError.jsp");
+        }
         
     }
 

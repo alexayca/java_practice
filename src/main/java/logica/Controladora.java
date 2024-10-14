@@ -3,6 +3,7 @@
  */
 package logica;
 
+import java.util.ArrayList;
 import java.util.List;
 import persistencia.ControladoraPersistencia;
 
@@ -40,6 +41,26 @@ public class Controladora {
 
     public void editarUsuario(Usuario usuario) {
         controlPersis.editarUsuario(usuario);
+    }
+
+    public boolean comprobarIngreso(String usuario, String password) {
+        boolean ingreso = false;
+        // traemos todos los usuarios, despues buscamos el usuario y comparamos su contraseña, aunque no es lo mas eficiente
+        // considere que la contraseña no esta encriptada
+        List <Usuario> listaUsuarios = new ArrayList<>();
+        listaUsuarios = controlPersis.getUsuarios();
+        System.out.println(usuario+"|"+password);
+        
+        for (Usuario usu : listaUsuarios) {
+            if(usu.getNombre_usuario().equals(usuario)){
+                System.out.print("Usuario correcto. ");
+                if (usu.getPassword().equals(password)){
+                    ingreso = true;
+                    System.out.print("Password correcto. ");
+                }
+            }
+        }
+        return ingreso;
     }
     
 }
